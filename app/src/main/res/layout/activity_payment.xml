@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/payment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvDesign1"
+        android:text="@string/bgticket"
+        android:fontFamily="@font/alumni_sans_pinstripe"
+        android:textSize="120sp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/transparentorange"
+        android:visibility="visible"/>
+
+    <TextView
+        android:id="@+id/tvDesign2"
+        android:text="@string/bgpayment"
+        android:fontFamily="@font/aboreto"
+        android:textSize="60sp"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="32dp"
+        android:textColor="@color/transparentorange"
+        android:visibility="visible"/>
+
+    <ImageView
+        android:id="@+id/ivMoviePoster"
+        android:layout_width="225dp"
+        android:layout_height="350dp"
+        android:contentDescription="@string/movie_poster_for_payment"
+        android:src="@drawable/oip"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="32dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/tvMovieInfo"
+        android:text="@string/movie_info"
+        style="@style/MainTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivMoviePoster" />
+
+    <Spinner
+        android:id="@+id/spnrPaymentMethod"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        style="@style/MainTextStyle"
+        android:background="@color/transparentorange"
+        android:layout_below="@id/tvMovieInfo" />
+
+    <ImageButton
+        android:id="@+id/btnPay"
+        android:contentDescription="@string/pay_now"
+        android:text="@string/pay_nowbtn"
+        android:layout_width="292dp"
+        android:layout_height="168dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/paybtn"
+        android:layout_marginBottom="32dp"
+        />
+</RelativeLayout>

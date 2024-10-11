@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ticket"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:text="@string/virtual_ticket"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/aboreto" />
+
+    <RelativeLayout
+        android:id="@+id/rlticket"
+        android:layout_width="300dp"
+        android:layout_height="600dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/ticket">
+
+    <ImageView
+        android:id="@+id/ivMoviePoster"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentEnd="true"
+        android:contentDescription="@string/movie_poster"
+        android:src="@drawable/oip"
+        android:layout_alignParentTop="true"
+        android:rotation="90"/>
+
+    <TextView
+        android:id="@+id/tvMovieTicket"
+        android:text="@string/movie_ticket_details"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alumni_sans_pinstripe"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_below="@id/ivMoviePoster"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-40dp"
+        android:layout_marginEnd="90dp"
+        android:rotation="90"/>
+
+    <ImageView
+        android:id="@+id/qrCode"
+        android:layout_width="225dp"
+        android:layout_height="225dp"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/qrcode"
+        android:src="@drawable/sample_qr"
+        android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+</RelativeLayout>

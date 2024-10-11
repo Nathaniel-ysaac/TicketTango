@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/movie"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    android:padding="16dp">
+
+
+    <TextView
+        android:id="@+id/tvDesign1"
+        android:text="@string/bgdetails"
+        android:fontFamily="@font/alumni_sans_pinstripe"
+        android:textSize="120sp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/transparentorange"
+        android:visibility="visible"/>
+
+    <TextView
+        android:id="@+id/tvDesign2"
+        android:text="@string/bgdetails2"
+        android:fontFamily="@font/aboreto"
+        android:textSize="60sp"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="32dp"
+        android:textColor="@color/transparentorange"
+        android:visibility="visible"/>
+
+
+    <ScrollView
+        android:id="@+id/svInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btnGet"
+        android:layout_alignParentTop="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:contentDescription="@string/movie_poster"
+                android:id="@+id/ivMoviePoster"
+                android:layout_width="225dp"
+                android:layout_height="350dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/oip" />
+
+            <TextView
+                android:id="@+id/tvMovieTitle"
+                android:text="@string/movie_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/playfair_display_sc"
+                android:textStyle="bold"
+                android:textColor="@color/lightorange"
+                android:textSize="25sp"
+                android:layout_below="@id/ivMoviePoster"/>
+
+            <TextView
+                android:id="@+id/tvMovieDesc"
+                android:text="@string/movie_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                style="@style/MainTextStyle"
+                android:layout_below="@id/tvMovieTitle"/>
+
+            <TextView
+                android:id="@+id/tvMovieScreening"
+                android:text="@string/movie_screening"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                style="@style/MainTextStyle"
+                android:layout_below="@id/tvMovieDesc"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <ImageButton
+        android:id="@+id/btnGet"
+        android:contentDescription="@string/get_ticket"
+        android:layout_width="292dp"
+        android:layout_height="168dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/ticketbtn"
+        android:layout_marginBottom="32dp"
+        />
+</RelativeLayout>

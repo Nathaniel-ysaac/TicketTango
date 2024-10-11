@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    android:padding="16dp"
+    android:animateLayoutChanges="true">
+
+
+    <TextView
+        android:id="@+id/tvDesign1"
+        android:text="@string/movie"
+        android:fontFamily="@font/alumni_sans_pinstripe"
+        android:textSize="120sp"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/transparentorange"
+        android:visibility="visible"/>
+
+    <TextView
+        android:id="@+id/tvDesign2"
+        android:text="@string/selection"
+        android:fontFamily="@font/aboreto"
+        android:textSize="60sp"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="32dp"
+        android:textColor="@color/transparentorange"
+        android:visibility="visible"/>
+
+
+
+    <ImageButton
+        android:id="@+id/btnTickets"
+        android:contentDescription="@string/tckicon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tckicon"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="25dp"/>
+
+    <TextView
+        android:id="@+id/tvUserGreeting"
+        android:text="@string/hello"
+        android:fontFamily="@font/arizonia"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp" />
+    <TextView
+        android:id="@+id/bgUsername"
+        android:text="@string/user_name"
+        android:fontFamily="@font/arizonia"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_toEndOf="@id/tvUserGreeting"/>
+
+    <TextView
+        android:id="@+id/tvMovieSelect"
+        android:text="@string/movie_selection"
+        android:fontFamily="@font/playfair_display_sc"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:textColor="@color/lightorange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/tvUserGreeting"/>
+
+
+    <ScrollView
+        android:id="@+id/svSelection"
+        android:contentDescription="@string/movies_selection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tvMovieSelect"
+        android:layout_marginTop="32dp"
+        android:layout_alignParentEnd="true">
+    <GridLayout
+        android:id="@+id/glMovies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2">
+
+
+
+    </GridLayout>
+    </ScrollView>
+
+    <SearchView
+        android:id="@+id/svMovie"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:queryHint="Search for movies"
+        android:background="#80FFFFFF"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/tvMovieSelect"/>
+</RelativeLayout>
+
