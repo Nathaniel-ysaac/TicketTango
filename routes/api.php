@@ -23,8 +23,8 @@ Route::post("/movie/{title}/{genre}/{duration}/{language}",[MovieController::cla
 //USER MODEL ITO
 Route::put("/user/{id}/{password}/{new_password}", [UserController::class,"update"]);
 Route::delete("/user/{id}/{password}",[UserController::class,"destroy"]);
-Route::get("/user/{username}/{password}",[UserController::class,"show"]);
-Route::post("/user/{username}/{password}",[UserController::class,"store"]);
+Route::get("/user",[UserController::class,"show"]);
+Route::post("/user",[UserController::class,"store"]);
 
 //CINEMA HALL MODEL ITO
 Route::put("/hall/{id}/{hallname}/{capacity}", [CinemaHallController::class,"update"]);
