@@ -1,7 +1,12 @@
 package com.example.tickettango
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
+import android.widget.EditText
 import android.widget.GridLayout
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
@@ -26,6 +31,21 @@ class MainActivity : AppCompatActivity() {
         }
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Tango Title two color text
+        val tangoTitle: EditText = findViewById(R.id.tangotitle)
+
+        val spannableStringTango = SpannableString("TicketTango")
+
+        spannableStringTango.setSpan(
+            ForegroundColorSpan(Color.WHITE), 0, 6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        spannableStringTango.setSpan(
+            ForegroundColorSpan(Color.parseColor("#FF9900")), 6, 11, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        tangoTitle.setText(spannableStringTango)
 
         // Movie Selection
         val gridLayout: GridLayout = findViewById(R.id.glMovies)
