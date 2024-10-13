@@ -2,10 +2,7 @@ package com.example.tickettango
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.GridLayout
-import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -29,41 +26,6 @@ class MainActivity : AppCompatActivity() {
         }
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-        // Animations
-        val fadeInAnim = AnimationUtils.loadAnimation(this, R.anim.fade_in)
-        val slideRightAnim = AnimationUtils.loadAnimation(this, R.anim.slide_right)
-        val slideUpAnim = AnimationUtils.loadAnimation(this, R.anim.slide_up)
-        val slideDownAnim = AnimationUtils.loadAnimation(this, R.anim.slide_down)
-
-        slideUpAnim.setAnimationListener(object : Animation.AnimationListener {
-            override fun onAnimationStart(animation: Animation) {}
-            override fun onAnimationEnd(animation: Animation) {
-                binding.tvDesign1.startAnimation(slideDownAnim)
-                binding.tvDesign2.startAnimation(slideUpAnim)
-            }
-            override fun onAnimationRepeat(animation: Animation) {}
-        })
-        slideDownAnim.setAnimationListener(object : Animation.AnimationListener {
-            override fun onAnimationStart(animation: Animation) {}
-            override fun onAnimationEnd(animation: Animation) {
-                binding.tvDesign1.startAnimation(slideUpAnim)
-                binding.tvDesign2.startAnimation(slideDownAnim)
-            }
-            override fun onAnimationRepeat(animation: Animation) {}
-        })
-
-        binding.tvDesign1.startAnimation(slideDownAnim)
-        binding.tvDesign2.startAnimation(slideUpAnim)
-        binding.bgUsername.startAnimation(slideRightAnim)
-        binding.bgUsername.startAnimation(fadeInAnim)
-        binding.tvUserGreeting.startAnimation(fadeInAnim)
-        binding.tvUserGreeting.startAnimation(slideRightAnim)
-        binding.tvMovieSelect.startAnimation(fadeInAnim)
-        binding.glMovies.startAnimation(fadeInAnim)
-        binding.svMovie.startAnimation(fadeInAnim)
-
 
         // Movie Selection
         val gridLayout: GridLayout = findViewById(R.id.glMovies)
@@ -99,14 +61,6 @@ class MainActivity : AppCompatActivity() {
 
             gridLayout.addView(imageView)
         }
-
-
-        val btnTickets: ImageButton = this.findViewById(R.id.btnTickets)
-        btnTickets.setOnClickListener {
-            val intent = Intent(this, DigitalTicketActivity::class.java)
-            startActivity(intent)
-        }
-
 
     }
 }

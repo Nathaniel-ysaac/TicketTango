@@ -1,10 +1,16 @@
 package com.example.tickettango
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.widget.ImageButton
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
+import android.text.style.ForegroundColorSpan
+import android.view.View
+import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -28,47 +34,58 @@ class SignupActivity : AppCompatActivity() {
         binding = SignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Animations
-        val fadeInAnim = AnimationUtils.loadAnimation(this, R.anim.fade_in)
-        val slideUpAnim = AnimationUtils.loadAnimation(this, R.anim.slide_up)
-        val slideDownAnim = AnimationUtils.loadAnimation(this, R.anim.slide_down)
+        // Tango Title two color text
+        val tangoTitle: EditText = findViewById(R.id.tangotitle)
 
+        val spannableStringTango = SpannableString("TicketTango")
 
-        slideUpAnim.setAnimationListener(object : Animation.AnimationListener {
-            override fun onAnimationStart(animation: Animation) {}
-            override fun onAnimationEnd(animation: Animation) {
-                binding.tvDesign1.startAnimation(slideDownAnim)
-                binding.tvDesign2.startAnimation(slideUpAnim)
-            }
-            override fun onAnimationRepeat(animation: Animation) {}
-        })
-        slideDownAnim.setAnimationListener(object : Animation.AnimationListener {
-            override fun onAnimationStart(animation: Animation) {}
-            override fun onAnimationEnd(animation: Animation) {
-                binding.tvDesign1.startAnimation(slideUpAnim)
-                binding.tvDesign2.startAnimation(slideDownAnim)
-            }
-            override fun onAnimationRepeat(animation: Animation) {}
-        })
-        binding.tvDesign1.startAnimation(slideDownAnim)
-        binding.tvDesign2.startAnimation(slideUpAnim)
-        binding.logo.startAnimation(fadeInAnim)
-        binding.tvSignuplabel.startAnimation(fadeInAnim)
-        binding.etCreatePassword.startAnimation(fadeInAnim)
-        binding.etCreateUsername.startAnimation(fadeInAnim)
-        binding.tvPassword.startAnimation(fadeInAnim)
-        binding.tvUsername.startAnimation(fadeInAnim)
-        binding.btnSignup.startAnimation(fadeInAnim)
+        spannableStringTango.setSpan(
+            ForegroundColorSpan(Color.WHITE), 0, 6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
 
+        spannableStringTango.setSpan(
+            ForegroundColorSpan(Color.parseColor("#FF9900")), 6, 11, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        tangoTitle.setText(spannableStringTango)
+
+        // Signup two text color
+        val loginTitle: EditText = findViewById(R.id.signuptitle)
+        val spannableStringLogin = SpannableString("Signup")
+
+        spannableStringLogin.setSpan(
+            ForegroundColorSpan(Color.WHITE), 0, 3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        spannableStringLogin.setSpan(
+            ForegroundColorSpan(Color.parseColor("#FF9900")), 4, 6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        loginTitle.setText(spannableStringLogin)
 
         // Login Button
-        val btnLogin: ImageButton = this.findViewById(R.id.btnSignup)
-        btnLogin.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+        val tvSignup: TextView = findViewById(R.id.tvLogin)
 
+        val signupText = SpannableString("Already have an account? Login")
+
+        signupText.setSpan(
+            ForegroundColorSpan(Color.WHITE), 0, signupText.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        signupText.setSpan(
+            ForegroundColorSpan(Color.parseColor("#FF9900")), 23, 29, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        // Make Signup clickable
+        val clickableSpan = object : ClickableSpan() {
+            override fun onClick(widget: View) {
+                val intent = Intent(this@SignupActivity, LoginActivity::class.java)
+                startActivity(intent)
+            }
         }
-
+        signupText.setSpan(clickableSpan, 25, 30, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        tvSignup.text = signupText
+        tvSignup.movementMethod = LinkMovementMethod.getInstance()
 
     }
 }

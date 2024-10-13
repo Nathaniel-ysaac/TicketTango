@@ -6,112 +6,113 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/background"
-    android:padding="16dp"
-    android:animateLayoutChanges="true">
-
+    android:padding="16dp">
 
     <TextView
-        android:id="@+id/tvDesign1"
-        android:text="@string/ticket_tango"
-        android:fontFamily="@font/alumni_sans_pinstripe"
-        android:textSize="120sp"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:textColor="@color/transparentorange"
-        android:visibility="visible"/>
+        android:id="@+id/welcome"
+        android:layout_width="165dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="100dp"
+        android:text="@string/welcome_to"
+        android:textSize="24sp"
+        android:fontFamily="@font/poppins_semibold"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:layout_above="@id/tangotitle"/>
 
-    <TextView
-        android:id="@+id/tvDesign2"
-        android:text="@string/log_in_menu"
-        android:fontFamily="@font/aboreto"
-        android:textSize="60sp"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="32dp"
-        android:textColor="@color/transparentorange"
-        android:visibility="visible"/>
-
-    <ImageView
-        android:contentDescription="@string/logo"
-        android:id="@+id/logo"
-        android:layout_width="255dp"
-        android:layout_height="wrap_content"
+    <EditText
+        android:id="@+id/tangotitle"
+        android:layout_width="165dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="100dp"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:fontFamily="@font/poppins_semibold"
+        android:background="@android:color/transparent"
+        android:focusable="false"
+        android:clickable="false"
+        android:cursorVisible="false"
         android:layout_above="@id/etUsername"
-        android:src="@drawable/ttlogo"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginBottom="100dp" />
 
-
-    <TextView
-        android:id="@+id/tvUsername"
-        android:text="@string/tvusername"
-        style="@style/MainTextStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <EditText
+        android:id="@+id/logintitle"
+        android:layout_width="155dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="100dp"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins_semibold"
         android:layout_above="@id/etUsername"
-        android:layout_marginTop="32dp" />
+        android:layout_marginBottom="30dp"
+        android:background="@android:color/transparent"
+        android:focusable="false"
+        android:clickable="false"
+        android:cursorVisible="false" />
+
     <EditText
         android:id="@+id/etUsername"
-        android:hint="@string/enter_username"
+        android:hint="Username"
         android:autofillHints="name"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:textAlignment="gravity"
+        android:textColorHint="@color/black"
         android:layout_centerVertical="true"
-        android:layout_above="@id/tvPassword"
-        android:fontFamily="@font/abel"
-        android:textColor="@color/black"
+        android:layout_above="@id/etPassword"
+        android:fontFamily="@font/nunito_semibold"
         android:background="@drawable/input"
         android:inputType="text"/>
 
-    <TextView
-        android:id="@+id/tvPassword"
-        android:text="@string/tvpassword"
-        style="@style/MainTextStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/etPassword"
-        android:layout_marginTop="32dp" />
     <EditText
         android:id="@+id/etPassword"
-        android:hint="@string/enter_password"
+        android:hint="Password"
         android:autofillHints="password"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_centerVertical="true"
-        android:fontFamily="@font/abel"
-        android:textColor="@color/black"
-        android:layout_marginTop="8dp"
+        android:fontFamily="@font/nunito_semibold"
+        android:textColorHint="@color/black"
+        android:layout_marginTop="10dp"
         android:background="@drawable/input"
         android:inputType="textPassword" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="60dp"
+        android:layout_below="@id/etPassword">
+
+        <ImageButton
+            android:id="@+id/btnLogin"
+            android:contentDescription="@string/login"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:background="@drawable/loginbtn" />
+
+        <TextView
+            android:id="@+id/loginText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/tvSignup"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
         android:layout_below="@id/etPassword"
-        android:layout_marginTop="10dp"
-        android:text="@string/clicktosignup"
-        style="@style/MainTextStyle"
-        android:textColor="@color/lightorange"
-        android:textStyle="italic"
-        />
-
-
-
-
-    <ImageButton
-        android:id="@+id/btnLogin"
-        android:contentDescription="@string/login"
-        android:layout_width="292dp"
-        android:layout_height="168dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/loginbtn"
-        android:layout_marginBottom="32dp"
-         />
-
+        android:layout_marginTop="150dp"
+        android:textSize="15sp"
+        android:fontFamily="@font/nunito_semibold"
+        android:textColor="@color/white" />
 
 </RelativeLayout>
