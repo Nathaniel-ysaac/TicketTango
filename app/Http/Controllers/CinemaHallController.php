@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CinemaHallModel;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class CinemaHallController extends Controller
 {
@@ -12,7 +12,8 @@ class CinemaHallController extends Controller
      */
     public function index()
     {
-        //
+        // Retrieve all cinema halls
+        return response()->json(CinemaHallModel::all(), 200);
     }
 
     /**
@@ -20,33 +21,62 @@ class CinemaHallController extends Controller
      */
     public function store(Request $request)
     {
-        DB::insert("INSERT INTO cinema_hall_models(HallName,Capacity) VALUES (?,? )" , [$request->hallname,$request->capacity]);
+        $json_body = $request->json()->all();
+        $cinemaHall = CinemaHallModel::create([
+            'HallName' => $json_body['HallName'],
+            'Capacity' => $json_body['Capacity']
+        ]);
+        return response()->json($cinemaHall, 201); // Return the created resource
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        DB::table("cinema_hall_models")->where("CinemaHallID", $id)->get()->toJson();
-        return DB::table("cinema_hall_models")->where("CinemaHallID", $id)->get()->toJson();
+        $cinemaHall = CinemaHallModel::find($id);
+
+        if (!$cinemaHall) {
+            return response("Cinema Hall does not exist.", 404);
+        }
+
+        return response()->json($cinemaHall, 200); // Return the specific cinema hall
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        DB::table("cinema_hall_models")->where ("CinemaHallID", $id)->update(["HallName" => $request->hallname,"Capacity"=> $request->capacity]);
+        $json_body = $request->json()->all();
+        $cinemaHall = CinemaHallModel::find($id);
+
+        if (!$cinemaHall) {
+            return response("Cinema Hall does not exist.", 404);
+        }
+
+        // Update cinema hall details
+        $cinemaHall->update([
+            'HallName' => $json_body['HallName'],
+            'Capacity' => $json_body['Capacity']
+        ]);
+
+        return response()->json($cinemaHall, 200); // Return updated cinema hall
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        if (DB::table("cinema_hall_models")->where("CinemaHallID", $id)->exists()===false)return response("Hall does not exist.",404);
-        DB::table("cinema_hall_models")->where("CinemaHallID", $id)->delete();
-        return response("Successfully Deleted.",200);
+        $cinemaHall = CinemaHallModel::find($id);
+
+        if (!$cinemaHall) {
+            return response("Cinema Hall does not exist.", 404);
+        }
+
+        $cinemaHall->delete(); // Delete the cinema hall
+
+        return response("Successfully Deleted.", 200);
     }
 }

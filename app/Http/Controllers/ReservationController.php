@@ -2,48 +2,84 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ReservationModel;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class ReservationController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Store a newly created reservation in storage.
      */
     public function store(Request $request)
     {
-        DB::insert("INSERT INTO reservation_models(UserID,ShowtimeID,ReservationDate) VALUES (?,?,?)" , [$request->UserID,$request->ShowtimeID,$request->ReservationDate]);
+        $json_body = $request->json()->all();
+        
+        // Create a new reservation
+        ReservationModel::create([
+            'UserID' => $json_body['UserID'],
+            'ReservationDate' => $json_body['ReservationDate'],
+        ]);
+        
+        return response("Reservation successfully created.", 201);
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified reservation.
      */
-    public function show(string $user_id)
+    public function show(string $id)
     {
-        return DB::table("reservation_models")->where("UserID", $user_id)->get()->toJson();
+        // Find the reservation by ID
+        $reservation = ReservationModel::find($id);
+
+        // Check if the reservation exists
+        if (!$reservation) {
+            return response("Reservation not found.", 404);
+        }
+
+        // Return the reservation data
+        return response()->json($reservation, 200);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified reservation in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+        $json_body = $request->json()->all();
+        
+        // Find the reservation by ID
+        $reservation = ReservationModel::find($id);
+
+        // Check if the reservation exists
+        if (!$reservation) {
+            return response("Reservation not found.", 404);
+        }
+
+        // Update the reservation details
+        $reservation->update([
+            'UserID' => $json_body['UserID'],
+            'ReservationDate' => $json_body['ReservationDate'],
+        ]);
+
+        return response("Reservation successfully updated.", 200);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified reservation from storage.
      */
     public function destroy(string $id)
     {
-        //
+        // Find the reservation by ID
+        $reservation = ReservationModel::find($id);
+
+        // Check if the reservation exists
+        if (!$reservation) {
+            return response("Reservation not found.", 404);
+        }
+
+        // Delete the reservation
+        $reservation->delete();
+
+        return response("Reservation successfully deleted.", 200);
     }
 }

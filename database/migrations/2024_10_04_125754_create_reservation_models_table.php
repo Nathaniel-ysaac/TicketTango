@@ -11,13 +11,12 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
+{
         Schema::create('reservation_models', function (Blueprint $table) {
-            $table->id("ReservationID");
-            // $table->foreign("UserID")->references("UserID")->on("user_models");
-            $table->foreignIdFor(UserModel::class,"UserID");
-            //$table->foreignIdFor("user_models","UserID");
-            $table->date("ReservationDate",);
+            $table->id("ReservationID"); // Creates an unsigned bigint primary key
+            $table->foreignIdFor(UserModel::class, "UserID"); // Ensure UserID is also valid
+            $table->date("ReservationDate");
+            $table->timestamps(); // Optional: adds created_at and updated_at
         });
     }
 
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reservation_models');
+        Schema::dropIfExists('reservation_models'); // Drops the table if it exists
     }
 };

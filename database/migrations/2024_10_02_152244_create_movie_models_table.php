@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('movie_models', function (Blueprint $table) {
             $table->id("MovieID");
-            $table->char("Title",255);
-            $table->char("Genre",255);
-            $table->integer("Duration");
-            $table->char("Language",255);
+            $table->string("Title", 255); // Using string for flexibility
+            $table->string("Genre", 255)->index(); // Adding an index
+            $table->integer("Duration")->unsigned(); // Unsigned to avoid negative values
+            $table->string("Language", 255);
+            $table->timestamps(); // Adding timestamps for created_at and updated_at
         });
     }
 

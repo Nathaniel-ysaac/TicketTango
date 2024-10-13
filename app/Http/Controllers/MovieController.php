@@ -2,25 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MovieModel;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class MovieController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        DB::insert("INSERT INTO movie_models(Title,Genre,Duration,Language) VALUES (?,?,?,?)" , [$request->title,$request->genre,$request->duration,$request->language]);
+        $json_body = $request->json()->all();
+        
+        MovieModel::create([
+            "Title" => $json_body["title"],
+            "Genre" => $json_body["genre"],
+            "Duration" => $json_body["duration"],
+            "Language" => $json_body["language"],
+        ]);
+        
+        return response("Successfully Created.", 201);
     }
 
     /**
@@ -28,8 +29,13 @@ class MovieController extends Controller
      */
     public function show(string $id)
     {
-        DB::table("movie_models")->where("MovieID", $id)->get()->toJson();
-        return DB::table("movie_models")->where("MovieID", $id)->get()->toJson();
+        $movie = MovieModel::find($id);
+
+        if (!$movie) {
+            return response("Movie not found.", 404);
+        }
+
+        return response()->json($movie, 200);
     }
 
     /**
@@ -37,7 +43,22 @@ class MovieController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        DB::table("movie_models")->where ("MovieID", $id)->update(["Title" => $request->title,"Genre"=> $request->genre,"Duration"=> $request->duration,"Language"=> $request->language]);
+        $json_body = $request->json()->all();
+        
+        $movie = MovieModel::find($id);
+
+        if (!$movie) {
+            return response("Movie not found.", 404);
+        }
+
+        $movie->update([
+            'Title' => $json_body['title'],
+            'Genre' => $json_body['genre'],
+            'Duration' => $json_body['duration'],
+            'Language' => $json_body['language'],
+        ]);
+
+        return response("Movie successfully updated.", 200);
     }
 
     /**
@@ -45,8 +66,14 @@ class MovieController extends Controller
      */
     public function destroy(string $id)
     {
-        if (DB::table("movie_models")->where("MovieID", $id)->exists()===false)return response("Movie does not exist.",404);
-        DB::table("movie_models")->where("MovieID", $id)->delete();
-        return response("Successfully Deleted.",200);
+        $movie = MovieModel::find($id);
+
+        if (!$movie) {
+            return response("Movie not found.", 404);
+        }
+
+        $movie->delete();
+
+        return response("Movie successfully deleted.", 200);
     }
 }
