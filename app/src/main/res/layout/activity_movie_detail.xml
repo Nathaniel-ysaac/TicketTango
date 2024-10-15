@@ -5,97 +5,104 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background"
+    android:background="@drawable/home_bg"
     android:padding="16dp">
 
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        android:background="@color/transparent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"/>
+    <TextView
+        android:id="@+id/tvmoviedetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Movie Details"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dp" />
+
+
+
+
+
+    <ImageView
+        android:contentDescription="@string/movie_poster"
+        android:id="@+id/ivMoviePoster"
+        android:layout_width="225dp"
+        android:layout_height="325dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tvmoviedetails"
+        android:background="@drawable/rounded_image"
+        android:clipToOutline="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/jacksparrow" />
+
+    <ImageButton
+        android:id="@+id/btnBookTkt"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="Book Ticket"
+        android:scaleType="fitXY"
+        android:background="@drawable/loginbtn"
+        android:layout_margin="20dp"
+        android:layout_below="@id/ivMoviePoster"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
-        android:id="@+id/tvDesign1"
-        android:text="@string/bgdetails"
-        android:fontFamily="@font/alumni_sans_pinstripe"
-        android:textSize="120sp"
-        android:layout_width="100dp"
+        android:id="@+id/booktxt"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:textColor="@color/transparentorange"
-        android:visibility="visible"/>
-
-    <TextView
-        android:id="@+id/tvDesign2"
-        android:text="@string/bgdetails2"
-        android:fontFamily="@font/aboreto"
-        android:textSize="60sp"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="32dp"
-        android:textColor="@color/transparentorange"
-        android:visibility="visible"/>
+        android:text="BOOK TICKET"
+        android:textColor="@color/white"
+        android:layout_below="@id/ivMoviePoster"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="25dp"/>
 
 
     <ScrollView
-        android:id="@+id/svInfo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_weight="1"
+        android:layout_below="@id/btnBookTkt"
+        android:fillViewport="true"
+        android:verticalScrollbarPosition="right">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/btnGet"
-        android:layout_alignParentTop="true">
+        android:orientation="vertical">
+    <TextView
+        android:id="@+id/tvMovieTitle"
+        android:text="@string/movie_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_gravity="center"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
 
-            <ImageView
-                android:contentDescription="@string/movie_poster"
-                android:id="@+id/ivMoviePoster"
-                android:layout_width="225dp"
-                android:layout_height="350dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/oip" />
+    <TextView
+        android:id="@+id/tvMovieScreening"
+        android:text="@string/movie_screening"
+        android:textSize="20sp"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
 
-            <TextView
-                android:id="@+id/tvMovieTitle"
-                android:text="@string/movie_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/playfair_display_sc"
-                android:textStyle="bold"
-                android:textColor="@color/lightorange"
-                android:textSize="25sp"
-                android:layout_below="@id/ivMoviePoster"/>
-
-            <TextView
-                android:id="@+id/tvMovieDesc"
-                android:text="@string/movie_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                style="@style/MainTextStyle"
-                android:layout_below="@id/tvMovieTitle"/>
-
-            <TextView
-                android:id="@+id/tvMovieScreening"
-                android:text="@string/movie_screening"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                style="@style/MainTextStyle"
-                android:layout_below="@id/tvMovieDesc"/>
-
-        </RelativeLayout>
+    </LinearLayout>
     </ScrollView>
 
-    <ImageButton
-        android:id="@+id/btnGet"
-        android:contentDescription="@string/get_ticket"
-        android:layout_width="292dp"
-        android:layout_height="168dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:background="@drawable/ticketbtn"
-        android:layout_marginBottom="32dp"
-        />
+
+
 </RelativeLayout>

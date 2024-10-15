@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item1"
+    android:layout_width="match_parent"
+    android:layout_height="125dp">
+
+    <ImageView
+        android:id="@+id/ivitem1"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/totoro"/>
+
+    <TextView
+        android:id="@+id/titleitem1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/ivitem1"
+        android:text="Totoro"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="40sp"
+        android:layout_margin="20dp"/>
+
+    <TextView
+        android:id="@+id/genreitem1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/ivitem1"
+        android:layout_below="@id/titleitem1"
+        android:text="Anime"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="-35dp"/>
+
+</RelativeLayout>

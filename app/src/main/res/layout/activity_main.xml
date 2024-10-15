@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/home_bg">
 
-    <ImageButton
-        android:id="@+id/menuButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_menu"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="60dp"/>
+<RelativeLayout
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <ImageButton
         android:id="@+id/searchButton"
@@ -28,63 +23,30 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="60dp"/>
 
-    <EditText
-        android:id="@+id/tangotitle"
-        android:layout_width="165dp"
-        android:layout_height="55dp"
-        android:layout_centerInParent="true"
+    <TextView
+        android:id="@+id/tickettitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ticket"
         android:textSize="24sp"
         android:textColor="@color/white"
-        android:textAlignment="center"
         android:fontFamily="@font/poppins_semibold"
-        android:background="@android:color/transparent"
-        android:focusable="false"
-        android:clickable="false"
-        android:cursorVisible="false"
-        android:layout_above="@id/nowPlayingText"
-        android:layout_marginBottom="-16dp"/>
-
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="100dp"/>
     <TextView
-        android:id="@+id/nowPlayingText"
+        android:id="@+id/tangotitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Now Playing"
-        android:textColor="@android:color/white"
+        android:text="Tango"
+        android:textSize="24sp"
+        android:textColor="@color/orange"
         android:fontFamily="@font/poppins_semibold"
-        android:textSize="20sp"
-        android:layout_below="@id/menuButton"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"/>
+        android:layout_toRightOf="@id/tickettitle"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Upcoming"
-        android:textSize="20sp"
-        android:fontFamily="@font/nunito_semibold"
-        android:textColor="@android:color/black"
-        android:layout_below="@id/nowPlayingText"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="230dp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginTop="55dp"/>
 
-    <ScrollView
-        android:id="@+id/svSelection"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/nowPlayingText"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="14dp"
-        android:contentDescription="@string/movies_selection">
 
-        <GridLayout
-            android:id="@+id/glMovies"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:columnCount="2">
-
-        </GridLayout>
-    </ScrollView>
 
     <RelativeLayout
         android:id="@+id/bottomNavigation"
@@ -158,4 +120,115 @@
             android:layout_marginEnd="50dp"/>
     </RelativeLayout>
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tangotitle"
+        android:layout_above="@id/bottomNavigation"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:verticalScrollbarPosition="right">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/nowPlayingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Now Playing"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="20sp"
+                android:layout_below="@id/menuButton"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="40dp"/>
+
+            <HorizontalScrollView
+                android:id="@+id/svSelection"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@id/nowPlayingText"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="14dp"
+                android:contentDescription="@string/movies_selection">
+                <LinearLayout
+                    android:id="@+id/llMovies"
+                    android:layout_width="360dp"
+                    android:layout_height="200dp"
+                    android:orientation="horizontal" />
+            </HorizontalScrollView>
+
+
+            <TextView
+                android:id="@+id/upComing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upcoming"
+                android:textSize="20sp"
+                android:fontFamily="@font/nunito_semibold"
+                android:textColor="@android:color/black"
+                android:layout_below="@id/svSelection"
+                android:layout_marginTop="32dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginBottom="16dp"/>
+
+            <HorizontalScrollView
+                android:id="@+id/svuCSelection"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="14dp"
+                android:layout_below="@id/upComing"
+                android:contentDescription="@string/movies_selection">
+
+                <LinearLayout
+                    android:id="@+id/lluCMovies"
+                    android:layout_width="360dp"
+                    android:layout_height="200dp"
+                    android:orientation="horizontal"/>
+            </HorizontalScrollView>
+        </LinearLayout>
+    </ScrollView>
+
 </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Your main content goes here -->
+            <ListView
+                android:id="@+id/myListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <ImageButton
+                android:id="@+id/menuButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_menu"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="60dp"/>
+
+        </FrameLayout>
+
+        <!-- Navigation View -->
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:menu="@menu/drawer_menu" /> <!-- Reference to your menu resource -->
+
+
+
+
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
