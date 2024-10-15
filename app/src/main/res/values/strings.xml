@@ -4,8 +4,8 @@
     <string name="bgdetails2">DETAILS</string>
     <string name="movie_poster">Movie Poster</string>
     <string name="movie_title">Movie Title</string>
-    <string name="movie_description">Movie description here</string>
-    <string name="movie_screening">Movie Screening</string>
+    <string name="movie_description">Key Details:</string>
+    <string name="movie_screening">Genre:\nDirector:\nStudio:\nRelease Date:</string>
     <string name="get_ticket">Get Ticket</string>
     <string name="ticket_tango">TICKET TANGO</string>
     <string name="log_in_menu">LOG IN MENU</string>

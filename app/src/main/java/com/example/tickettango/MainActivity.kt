@@ -1,17 +1,12 @@
 package com.example.tickettango
 
+
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.text.Spannable
-import android.text.SpannableString
-import android.text.style.ForegroundColorSpan
-import android.widget.EditText
-import android.widget.GridLayout
 import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.tickettango.databinding.ActivityMainBinding
@@ -32,54 +27,58 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Tango Title two color text
-        val tangoTitle: EditText = findViewById(R.id.tangotitle)
 
-        val spannableStringTango = SpannableString("TicketTango")
+        // Now Playing Movie Selection
+        val movies: LinearLayout = findViewById(R.id.llMovies)
 
-        spannableStringTango.setSpan(
-            ForegroundColorSpan(Color.WHITE), 0, 6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-
-        spannableStringTango.setSpan(
-            ForegroundColorSpan(Color.parseColor("#FF9900")), 6, 11, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-
-        tangoTitle.setText(spannableStringTango)
-
-        // Movie Selection
-        val gridLayout: GridLayout = findViewById(R.id.glMovies)
-
-        val imageResIds = arrayOf(
+        val movielist = arrayOf(
             R.drawable.oip,
             R.drawable.patema,
             R.drawable.jacksparrow,
             R.drawable.mranderson,
             R.drawable.penguinhighway,
+        )
+
+        for (image in movielist) {
+            val imageView = ImageView(this).apply {
+                setImageResource(image)
+                layoutParams = LinearLayout.LayoutParams(
+                    180,
+                    240
+                )
+                setPadding(16, 16, 16, 16) // Add padding if needed
+            }
+
+            imageView.setOnClickListener {
+                val intent = Intent(this, MovieDetailActivity::class.java)
+                startActivity(intent)
+            }
+
+            movies.addView(imageView)
+        }
+
+
+        // Now Playing Movie Selection
+        val upmovies: LinearLayout = findViewById(R.id.lluCMovies)
+
+        val upMovies = arrayOf(
             R.drawable.yourname,
             R.drawable.suzume,
             R.drawable.totoro,
             R.drawable.oppenheimer,
 
-        )
+            )
 
-        for (imageResId in imageResIds) {
-            val imageView = ImageView(this)
-            imageView.setImageDrawable(ContextCompat.getDrawable(this, imageResId))
-            imageView.layoutParams = GridLayout.LayoutParams().apply {
-                width = 440
-                height = 660
-                setMargins(16, 16, 16, 16)
-
+        for (image in upMovies) {
+            val imageView = ImageView(this).apply {
+                setImageResource(image)
+                layoutParams = LinearLayout.LayoutParams(
+                    180,
+                    240
+                )
+                setPadding(16, 16, 16, 16) // Add padding if needed
             }
-
-            imageView.setOnClickListener {
-                // Navigate to the corresponding activity
-                val intent = Intent(this, MovieDetailActivity::class.java)
-                startActivity(intent)
-            }
-
-            gridLayout.addView(imageView)
+            upmovies.addView(imageView)
         }
 
     }
