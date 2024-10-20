@@ -1,60 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/drawer_layout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/home_bg">
-
 <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageButton
-        android:id="@+id/searchButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_search"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="60dp"/>
+    <RelativeLayout
+        android:id="@+id/rlMenu"
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:background="@drawable/rounded_darkblue_bg">
+        <ImageButton
+            android:id="@+id/searchButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_search"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="60dp"/>
 
-    <TextView
-        android:id="@+id/tickettitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ticket"
-        android:textSize="24sp"
-        android:textColor="@color/white"
-        android:fontFamily="@font/poppins_semibold"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="55dp"
-        android:layout_marginLeft="100dp"/>
-    <TextView
-        android:id="@+id/tangotitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tango"
-        android:textSize="24sp"
-        android:textColor="@color/orange"
-        android:fontFamily="@font/poppins_semibold"
-        android:layout_toRightOf="@id/tickettitle"
+        <TextView
+            android:id="@+id/tickettitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ticket"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="100dp"/>
+        <TextView
+            android:id="@+id/tangotitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tango"
+            android:textSize="24sp"
+            android:textColor="@color/orange"
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_toRightOf="@id/tickettitle"
+            android:layout_marginTop="55dp"/>
 
-        android:layout_marginTop="55dp"/>
+        <TextView
+            android:id="@+id/tvNowPlaying"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NOW PLAYING"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="17sp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="32dp"
+            android:layout_marginStart="40dp"/>
 
+        <TextView
+            android:id="@+id/tvUpcoming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UPCOMING"
+            android:textSize="17sp"
+            android:textColor="@android:color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="32dp" />
+    </RelativeLayout>
 
 
     <RelativeLayout
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="100dp"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/shape1">
+        android:background="@drawable/bottom_nav">
 
         <ImageView
             android:id="@+id/homeIcon"
@@ -122,9 +142,10 @@
 
 
     <ScrollView
+        android:id="@+id/svNowPlaying"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tangotitle"
+        android:layout_below="@id/rlMenu"
         android:layout_above="@id/bottomNavigation"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="0dp"
@@ -132,98 +153,193 @@
         android:fillViewport="true"
         android:verticalScrollbarPosition="right">
 
-        <LinearLayout
+        <GridLayout
+            android:id="@+id/glNowPlaying"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:columnCount="2">
+
             <TextView
-                android:id="@+id/nowPlayingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Now Playing"
-                android:textColor="@android:color/white"
+                android:text="Cinema 1"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/poppins_semibold"
-                android:textSize="20sp"
-                android:layout_below="@id/menuButton"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="40dp"/>
-
-            <HorizontalScrollView
-                android:id="@+id/svSelection"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_below="@id/nowPlayingText"
-                android:layout_marginTop="9dp"
-                android:layout_marginEnd="14dp"
-                android:contentDescription="@string/movies_selection">
-                <LinearLayout
-                    android:id="@+id/llMovies"
-                    android:layout_width="360dp"
-                    android:layout_height="200dp"
-                    android:orientation="horizontal" />
-            </HorizontalScrollView>
-
+                android:textSize="25sp"/>
 
             <TextView
-                android:id="@+id/upComing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Upcoming"
-                android:textSize="20sp"
-                android:fontFamily="@font/nunito_semibold"
-                android:textColor="@android:color/black"
-                android:layout_below="@id/svSelection"
-                android:layout_marginTop="32dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginBottom="16dp"/>
+                android:text="Cinema 2"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="25sp"/>
 
-            <HorizontalScrollView
-                android:id="@+id/svuCSelection"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="9dp"
-                android:layout_marginEnd="14dp"
-                android:layout_below="@id/upComing"
-                android:contentDescription="@string/movies_selection">
+            <ImageView
+                android:id="@+id/ivNPCinema1"
+                android:layout_width="150dp"
+                android:layout_height="215dp"
+                android:background="@drawable/rounded_image"
+                android:clipToOutline="true"
+                android:layout_marginTop="0dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/jacksparrow"/>
 
-                <LinearLayout
-                    android:id="@+id/lluCMovies"
-                    android:layout_width="360dp"
-                    android:layout_height="200dp"
-                    android:orientation="horizontal"/>
-            </HorizontalScrollView>
-        </LinearLayout>
+            <ImageView
+                android:id="@+id/ivNPCinema2"
+                android:layout_width="150dp"
+                android:layout_height="215dp"
+                android:background="@drawable/rounded_image"
+                android:clipToOutline="true"
+                android:layout_marginTop="0dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/jacksparrow"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cinema 3"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cinema 4"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="25sp"/>
+
+            <ImageView
+                android:id="@+id/ivNPCinema3"
+                android:layout_width="150dp"
+                android:layout_height="215dp"
+                android:background="@drawable/rounded_image"
+                android:clipToOutline="true"
+                android:layout_marginTop="0dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/jacksparrow"/>
+
+            <ImageView
+                android:id="@+id/ivNPCinema4"
+                android:layout_width="150dp"
+                android:layout_height="215dp"
+                android:background="@drawable/rounded_image"
+                android:clipToOutline="true"
+                android:layout_marginTop="0dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/jacksparrow"/>
+
+        </GridLayout>
     </ScrollView>
+
+
+    <ScrollView
+        android:id="@+id/svUpcoming"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rlMenu"
+        android:layout_above="@id/bottomNavigation"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:verticalScrollbarPosition="right">
+
+        <GridLayout
+            android:id="@+id/glUpcoming"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cinema 1"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cinema 2"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="25sp"/>
+
+            <ImageView
+                android:id="@+id/ivUCCinema1"
+                android:layout_width="150dp"
+                android:layout_height="215dp"
+                android:background="@drawable/rounded_image"
+                android:clipToOutline="true"
+                android:layout_marginTop="0dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/jacksparrow"/>
+
+            <ImageView
+                android:id="@+id/ivUCCinema2"
+                android:layout_width="150dp"
+                android:layout_height="215dp"
+                android:background="@drawable/rounded_image"
+                android:clipToOutline="true"
+                android:layout_marginTop="0dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/jacksparrow"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cinema 3"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cinema 4"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="25sp"/>
+
+            <ImageView
+                android:id="@+id/ivUCCinema3"
+                android:layout_width="150dp"
+                android:layout_height="215dp"
+                android:background="@drawable/rounded_image"
+                android:clipToOutline="true"
+                android:layout_marginTop="0dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/jacksparrow"/>
+
+            <ImageView
+                android:id="@+id/ivUCCinema4"
+                android:layout_width="150dp"
+                android:layout_height="215dp"
+                android:background="@drawable/rounded_image"
+                android:clipToOutline="true"
+                android:layout_marginTop="0dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/jacksparrow"/>
+
+
+        </GridLayout>
+    </ScrollView>
+
 
 </RelativeLayout>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <!-- Your main content goes here -->
-            <ListView
-                android:id="@+id/myListView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <ImageButton
-                android:id="@+id/menuButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_menu"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="60dp"/>
-
-        </FrameLayout>
-
-        <!-- Navigation View -->
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            app:menu="@menu/drawer_menu" /> <!-- Reference to your menu resource -->
 
 
 
@@ -231,4 +347,5 @@
 
 
 
-</androidx.drawerlayout.widget.DrawerLayout>
+
+

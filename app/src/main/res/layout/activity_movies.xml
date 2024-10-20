@@ -8,20 +8,8 @@
     <RelativeLayout
         android:id="@+id/rlMovies"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="175dp"
         android:background="@drawable/rounded_darkblue_bg">
-
-        <ImageButton
-            android:id="@+id/menuButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_menu"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="60dp"/>
-
         <ImageButton
             android:id="@+id/searchButton"
             android:layout_width="wrap_content"
@@ -34,36 +22,49 @@
             android:layout_marginTop="60dp"/>
 
         <TextView
-            android:id="@+id/tvMovies"
+            android:id="@+id/tickettitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Movies"
+            android:text="Ticket"
             android:textSize="24sp"
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_semibold"
-            android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="55dp" />
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="100dp"/>
+        <TextView
+            android:id="@+id/tangotitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tango"
+            android:textSize="24sp"
+            android:textColor="@color/orange"
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_toRightOf="@id/tickettitle"
+            android:layout_marginTop="55dp"/>
 
         <TextView
+            android:id="@+id/tvNowPlaying"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="NOW SHOWING"
-            android:fontFamily="@font/poppins_semibold"
-            android:textColor="@color/white"
-            android:textSize="15dp"
+            android:text="NOW PLAYING"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="17sp"
             android:layout_alignParentBottom="true"
-            android:layout_margin="50dp"/>
+            android:layout_marginBottom="32dp"
+            android:layout_marginStart="40dp"/>
+
         <TextView
+            android:id="@+id/tvUpcoming"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="COMING SOON"
-            android:fontFamily="@font/poppins_semibold"
-            android:textColor="@color/white"
-            android:textSize="15dp"
+            android:text="UPCOMING"
+            android:textSize="17sp"
+            android:textColor="@android:color/white"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_margin="50dp"/>
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="32dp" />
     </RelativeLayout>
 
     <LinearLayout
@@ -74,8 +75,7 @@
         <ListView
             android:id="@+id/movielist"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 

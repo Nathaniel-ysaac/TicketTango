@@ -26,6 +26,9 @@
         <activity android:name=".MovieDetailActivity" />
         <activity android:name=".PaymentActivity" />
         <activity android:name=".DigitalTicketActivity" />
+        <activity android:name=".MoviesActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".CheckoutActivity" />
 
 
         <meta-data
