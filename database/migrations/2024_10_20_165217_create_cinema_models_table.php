@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_models', function (Blueprint $table) {
-            $table->id("UserID");
-            $table->char("Username",255);
-            $table->string("Password");
+        Schema::create('cinema_models', function (Blueprint $table) {
+            $table->id();
+            $table->string('cinema_hall'); // Add this line for CinemaHall attribute
+            $table->timestamps();
         });
     }
 
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_models');
+        Schema::dropIfExists('cinema_models');
     }
 };

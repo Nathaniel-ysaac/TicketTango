@@ -1,72 +1,93 @@
 <?php
 
-use App\Http\Controllers\ReservationController;
-use App\Models\ReservationModel;
-use App\Http\Controllers\SeatController;
-use App\Models\SeatModel;
-use App\Http\Controllers\TicketController;
-use App\Models\TicketModel;
-use App\Http\Controllers\MovieController;
-use App\Models\MovieModel;
-use App\Http\Controllers\UserController;
-use App\Models\UserModel;
-use App\Http\Controllers\CinemaHallController;
-use App\Models\CinemaHallModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CinemaController;
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\ShowtimeController;
+use App\Http\Controllers\SeatController;
+use App\Http\Controllers\TicketController;
 
-Route::get('/',function(){
-    return "Hello World";
+Route::middleware('api')->group(function () {
+    // User Routes
+    // Create a new user (Sign up)
+    Route::post('/users', [UserController::class, 'store']); 
+    // Login a user using username or email
+    Route::post('/login', [UserController::class, 'login']);    
+    // Logout a user
+    Route::post('/logout', [UserController::class, 'logout']); 
+    // Show a user by ID
+    Route::get('/users/{id}', [UserController::class, 'show']); 
+    // Update user information by ID
+    Route::put('/users/{id}', [UserController::class, 'update']); 
+    // Delete a user by ID
+    Route::delete('/users/{id}', [UserController::class, 'destroy']); 
+    // Reset user password
+    Route::post('/reset-password', [UserController::class, 'resetPassword']); 
+
+    // Cinema Routes
+    // Get all cinemas
+    Route::get('/cinemas', [CinemaController::class, 'index']); // List all cinemas
+    // Create a new cinema
+    Route::post('/cinemas', [CinemaController::class, 'store']); // Store a new cinema
+    // Show a cinema by ID
+    Route::get('/cinemas/{id}', [CinemaController::class, 'show']); // Show a specific cinema
+    // Update cinema information by ID
+    Route::put('/cinemas/{id}', [CinemaController::class, 'update']); // Update a specific cinema
+    // Delete a cinema by ID
+    Route::delete('/cinemas/{id}', [CinemaController::class, 'destroy']); // Delete a specific cinema
+
+    // Movie Routes
+    // Display a listing of the movies
+    Route::get('/movies', [MovieController::class, 'index']); 
+    // Store a newly created movie
+    Route::post('/movies', [MovieController::class, 'store']); 
+    // Show a specific movie by ID
+    Route::get('/movies/{id}', [MovieController::class, 'show']); 
+    // Update a specific movie by ID
+    Route::put('/movies/{id}', [MovieController::class, 'update']); 
+    // Delete a specific movie by ID
+    Route::delete('/movies/{id}', [MovieController::class, 'destroy']);
+
+    // Showtime Routes
+    // Display a listing of the showtimes
+    Route::get('/showtimes', [ShowtimeController::class, 'index']); 
+    // Store a newly created showtime
+    Route::post('/showtimes', [ShowtimeController::class, 'store']); 
+    // Show a specific showtime by ID
+    Route::get('/showtimes/{id}', [ShowtimeController::class, 'show']); 
+    // Update a specific showtime by ID
+    Route::put('/showtimes/{id}', [ShowtimeController::class, 'update']); 
+    // Delete a specific showtime by ID
+    Route::delete('/showtimes/{id}', [ShowtimeController::class, 'destroy']);
+
+    // Seat Routes
+    // Display a listing of the seats
+    Route::get('/seats', [SeatController::class, 'index']); 
+    // Store a newly created seat
+    Route::post('/seats', [SeatController::class, 'store']); 
+    // Show a specific seat by ID
+    Route::get('/seats/{id}', [SeatController::class, 'show']); 
+    // Update a specific seat by ID
+    Route::put('/seats/{id}', [SeatController::class, 'update']); 
+    // Delete a specific seat by ID
+    Route::delete('/seats/{id}', [SeatController::class, 'destroy']);
+
+    // Ticket Routes
+    // Display a listing of the tickets
+    Route::get('/tickets', [TicketController::class, 'index']); 
+    // Store a newly created ticket
+    Route::post('/tickets', [TicketController::class, 'store']); 
+    // Show a specific ticket by ID
+    Route::get('/tickets/{id}', [TicketController::class, 'show']); 
+    // Update a specific ticket by ID
+    Route::put('/tickets/{id}', [TicketController::class, 'update']); 
+    // Delete a specific ticket by ID
+    Route::delete('/tickets/{id}', [TicketController::class, 'destroy']);
 });
-//RESERVATION
-//Route::get("/reservation/{user_id}");
 
-//SEAT MODEL ITO
-// Route for listing all seats
-Route::get('/seats', [SeatController::class, 'index']);
-Route::post('/seats', [SeatController::class, 'store']);
-Route::get('/seats/{id}', [SeatController::class, 'show']);
-Route::put('/seats/{id}', [SeatController::class, 'update']);
-Route::delete('/seats/{id}', [SeatController::class, 'destroy']);
-
-
-//RESERVATION MODEL ITO
-Route::post("/reservations", [ReservationController::class, "store"]);
-Route::get("/reservations/{id}", [ReservationController::class, "show"]);
-Route::put("/reservations/{id}", [ReservationController::class, "update"]);
-Route::delete("/reservations/{id}", [ReservationController::class, "destroy"]);
-
-//SHOWTIME MODEL ITO
-Route::post("/showtimes", [ShowtimeController::class, "store"]);
-Route::get("/showtimes/{id}", [ShowtimeController::class, "show"]);
-Route::put("/showtimes/{id}", [ShowtimeController::class, "update"]);
-Route::delete("/showtimes/{id}", [ShowtimeController::class, "destroy"]);
-
-
-//TICKET MODEL ITO
-Route::post("/ticket", [TicketController::class, "store"]);
-Route::get("/ticket/{id}", [TicketController::class, "show"]);
-Route::put("/ticket/{id}", [TicketController::class, "update"]);
-Route::delete("/ticket/{id}", [TicketController::class, "destroy"]);
-
-//MOVIE MODEL ITO
-Route::post("/movies", [MovieController::class, "store"]);
-Route::get("/movies/{id}", [MovieController::class, "show"]);
-Route::put("/movies/{id}", [MovieController::class, "update"]);
-Route::delete("/movies/{id}", [MovieController::class, "destroy"]);
-
-//USER MODEL ITO
-Route::put("/user/{id}/{password}/{new_password}", [UserController::class,"update"]);
-Route::delete("/user/{id}/{password}",[UserController::class,"destroy"]);
-Route::get("/user",[UserController::class,"show"]);
-Route::post("/user",[UserController::class,"store"]);
-
-//CINEMA HALL MODEL ITO
-Route::get("/cinema_halls", [CinemaHallController::class, "index"]);
-Route::post("/cinema_halls", [CinemaHallController::class, "store"]);
-Route::get("/cinema_halls/{id}", [CinemaHallController::class, "show"]);
-Route::put("/cinema_halls/{id}", [CinemaHallController::class, "update"]);
-Route::delete("/cinema_halls/{id}", [CinemaHallController::class, "destroy"]);
-// Route::get('/user', function (Request $request) {
-//     return $request->user();
-// })->middleware('auth:sanctum');
+// Welcome message for the API
+Route::get('/', function () {
+    return response()->json(['message' => 'Welcome to the API!']);
+});

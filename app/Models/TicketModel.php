@@ -9,20 +9,25 @@ class TicketModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'ticket_models'; // Ensure the table name is correct
-    protected $primaryKey = 'TicketID'; // Specify the primary key
-    public $timestamps = true; // Set to true if you want created_at and updated_at fields
+    // Specify the table name if it's not the plural of the model name
+    protected $table = 'ticket_models';
 
-    // Fillable fields for mass assignment
+    // Specify the fillable attributes
     protected $fillable = [
-        'TicketType',
-        'Price',
-        'ReservationID',
+        'user_id',
+        'seat_model_id',
+        'price',
     ];
 
-    // Define a relationship to the ReservationModel if needed
-    public function reservation()
+    // Define the relationship with the User model
+    public function user()
     {
-        return $this->belongsTo(ReservationModel::class, 'ReservationID');
+        return $this->belongsTo(User::class);
+    }
+
+    // Define the relationship with the SeatModel
+    public function seat()
+    {
+        return $this->belongsTo(SeatModel::class, 'seat_model_id');
     }
 }

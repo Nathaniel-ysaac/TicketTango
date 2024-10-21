@@ -9,20 +9,11 @@ class MovieModel extends Model
 {
     use HasFactory;
 
-    // Specify the table name if it's different from the default
-    protected $table = 'movie_models'; 
-
-    // Specify the primary key if it's different from the default 'id'
-    protected $primaryKey = 'MovieID';
-
-    // Allow mass assignment for these attributes
+    // Specify the attributes that are mass assignable
     protected $fillable = [
-        'Title',
-        'Genre',
-        'Duration',
-        'Language',
+        'title',    // Title of the movie
+        'genre',    // Genre of the movie
+        'duration', // Duration in minutes
+        'language'  // Language of the movie
     ];
-
-    // Optional: You can disable timestamps if you don't need them
-    public $timestamps = false; // Set to true if you want to use created_at and updated_at
 }

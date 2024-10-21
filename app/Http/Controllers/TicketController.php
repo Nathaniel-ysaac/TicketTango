@@ -7,89 +7,83 @@ use Illuminate\Http\Request;
 
 class TicketController extends Controller
 {
-    // Store a newly created resource in storage.
+    /**
+     * Display a listing of the tickets.
+     */
+    public function index()
+    {
+        $tickets = TicketModel::with(['user', 'seat'])->get(); // Eager load relationships
+        return response()->json($tickets, 200);
+    }
+
+    /**
+     * Store a newly created ticket in storage.
+     */
     public function store(Request $request)
     {
-        $json_body = $request->json()->all();
-        TicketModel::create([
-            "TicketType" => $json_body["tickettype"],
-            "Price" => $json_body["price"],
-            "ReservationID" => $json_body["ReservationID"], // Make sure you include the ReservationID
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'seat_model_id' => 'required|exists:seat_models,id',
+            'price' => 'required|numeric|min:0',
         ]);
-        return response("Successfully Created.", 201); // Return 201 for created response
+
+        $ticket = TicketModel::create($request->all());
+        return response()->json([
+            'message' => 'Ticket created successfully!',
+            'ticket' => $ticket
+        ], 201);
     }
 
-    // Display the specified resource.
-    public function show(Request $request, string $id)
+    /**
+     * Display the specified ticket.
+     */
+    public function show($id)
     {
-        $json_body = $request->json()->all();
+        $ticket = TicketModel::with(['user', 'seat'])->find($id);
 
-        // Find the ticket by ReservationID
-        $ticket = TicketModel::where("ReservationID", $json_body["ReservationID"])->first();
-
-        // Check if the ticket exists
         if (!$ticket) {
-            return response("Ticket does not exist.", 404);
+            return response()->json(['message' => 'Ticket not found!'], 404);
         }
 
-        // Check if the ticket type and price match
-        if ($json_body["tickettype"] === $ticket->TicketType && $json_body["price"] === $ticket->Price) {
-            return response()->json([
-                'ReservationID' => $ticket->ReservationID,
-                'TicketType' => $ticket->TicketType,
-                'Price' => $ticket->Price,
-            ], 200);
-        }
-
-        return response("Ticket data does not match.", 401);
+        return response()->json($ticket, 200);
     }
 
-    // Update the specified resource in storage.
-    public function update(Request $request, string $id)
+    /**
+     * Update the specified ticket in storage.
+     */
+    public function update(Request $request, $id)
     {
-        $json_body = $request->json()->all();
-
         $ticket = TicketModel::find($id);
 
-        // Check if the ticket exists
         if (!$ticket) {
-            return response("Ticket does not exist.", 404);
+            return response()->json(['message' => 'Ticket not found!'], 404);
         }
 
-        // Check if the current ticket matches
-        if ($ticket->ticketid === $json_body["ticketid"]) {
-            // Update the ticket
-            $ticket->TicketType = $json_body["new_tickettype"]; // Make sure to include the new ticket type
-            $ticket->Price = $json_body["new_price"]; // Include new price if applicable
-            $ticket->save();
+        $request->validate([
+            'user_id' => 'sometimes|required|exists:users,id',
+            'seat_model_id' => 'sometimes|required|exists:seat_models,id',
+            'price' => 'sometimes|required|numeric|min:0',
+        ]);
 
-            return response("Ticket successfully updated.", 200);
-        }
-
-        return response("Ticket ID mismatch.", 401);
+        $ticket->update($request->all());
+        return response()->json([
+            'message' => 'Ticket updated successfully!',
+            'ticket' => $ticket
+        ], 200);
     }
 
-    // Remove the specified resource from storage.
-    public function destroy(Request $request, string $id)
+    /**
+     * Remove the specified ticket from storage.
+     */
+    public function destroy($id)
     {
-        $json_body = $request->json()->all();
-
-        // Find the ticket by ID
         $ticket = TicketModel::find($id);
 
-        // Check if the ticket exists
         if (!$ticket) {
-            return response("Ticket does not exist.", 404);
+            return response()->json(['message' => 'Ticket not found!'], 404);
         }
 
-        // Check if the ticket ID matches the one provided in the request
-        if ($ticket->ticketid === $json_body["ticketid"]) {
-            // Delete the ticket
-            $ticket->delete();
-
-            return response("Ticket deleted successfully.", 200);
-        }
-
-        return response("Ticket ID mismatch.", 401);
+        $ticket->delete();
+        return response()->json(['message' => 'Ticket deleted successfully!'], 200);
     }
 }

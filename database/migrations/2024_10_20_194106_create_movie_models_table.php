@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('movie_models', function (Blueprint $table) {
-            $table->id("MovieID");
-            $table->string("Title", 255); // Using string for flexibility
-            $table->string("Genre", 255)->index(); // Adding an index
-            $table->integer("Duration")->unsigned(); // Unsigned to avoid negative values
-            $table->string("Language", 255);
-            $table->timestamps(); // Adding timestamps for created_at and updated_at
+            $table->id();
+            $table->string('title'); // Title of the movie
+            $table->string('genre'); // Genre of the movie
+            $table->integer('duration'); // Duration in minutes
+            $table->string('language'); // Language of the movie
+            $table->timestamps();
         });
     }
 

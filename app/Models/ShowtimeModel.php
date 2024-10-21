@@ -9,23 +9,29 @@ class ShowtimeModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'showtime_models'; // Specify the table name if different from the model name
-    protected $primaryKey = 'ShowtimeID'; // Specify the primary key if not the default 'id'
-    
+    // Specify the table associated with the model (optional if the table name follows Laravel's conventions)
+    protected $table = 'showtime_models';
+
+    // Define the fillable attributes
     protected $fillable = [
-        'MovieID', // Foreign key for Movie
-        'CinemaHallID', // Foreign key for Cinema Hall
-        'DateTime', // Date and time of the show
+        'cinema_model_id',
+        'movie_model_id',
+        'showtime',
     ];
 
-    // Define relationships
-    public function movie()
+    /**
+     * Get the cinema associated with the showtime.
+     */
+    public function cinema()
     {
-        return $this->belongsTo(MovieModel::class, 'MovieID', 'MovieID');
+        return $this->belongsTo(CinemaModel::class, 'cinema_model_id');
     }
 
-    public function cinemaHall()
+    /**
+     * Get the movie associated with the showtime.
+     */
+    public function movie()
     {
-        return $this->belongsTo(CinemaHallModel::class, 'CinemaHallID', 'CinemaHallID');
+        return $this->belongsTo(MovieModel::class, 'movie_model_id');
     }
 }

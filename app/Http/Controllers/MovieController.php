@@ -8,72 +8,84 @@ use Illuminate\Http\Request;
 class MovieController extends Controller
 {
     /**
-     * Store a newly created resource in storage.
+     * Display a listing of the movies.
      */
-    public function store(Request $request)
+    public function index()
     {
-        $json_body = $request->json()->all();
-        
-        MovieModel::create([
-            "Title" => $json_body["title"],
-            "Genre" => $json_body["genre"],
-            "Duration" => $json_body["duration"],
-            "Language" => $json_body["language"],
-        ]);
-        
-        return response("Successfully Created.", 201);
+        $movies = MovieModel::all();
+        return response()->json($movies, 200);
     }
 
     /**
-     * Display the specified resource.
+     * Store a newly created movie in storage.
      */
-    public function show(string $id)
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'genre' => 'required|string|max:255',
+            'duration' => 'required|integer|min:1',
+            'language' => 'required|string|max:255',
+        ]);
+
+        $movie = MovieModel::create($request->all());
+        return response()->json([
+            'message' => 'Movie created successfully!',
+            'movie' => $movie
+        ], 201);
+    }
+
+    /**
+     * Display the specified movie.
+     */
+    public function show($id)
     {
         $movie = MovieModel::find($id);
 
         if (!$movie) {
-            return response("Movie not found.", 404);
+            return response()->json(['message' => 'Movie not found!'], 404);
         }
 
         return response()->json($movie, 200);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified movie in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        $json_body = $request->json()->all();
-        
         $movie = MovieModel::find($id);
 
         if (!$movie) {
-            return response("Movie not found.", 404);
+            return response()->json(['message' => 'Movie not found!'], 404);
         }
 
-        $movie->update([
-            'Title' => $json_body['title'],
-            'Genre' => $json_body['genre'],
-            'Duration' => $json_body['duration'],
-            'Language' => $json_body['language'],
+        $request->validate([
+            'title' => 'sometimes|required|string|max:255',
+            'genre' => 'sometimes|required|string|max:255',
+            'duration' => 'sometimes|required|integer|min:1',
+            'language' => 'sometimes|required|string|max:255',
         ]);
 
-        return response("Movie successfully updated.", 200);
+        $movie->update($request->all());
+        return response()->json([
+            'message' => 'Movie updated successfully!',
+            'movie' => $movie
+        ], 200);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified movie from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         $movie = MovieModel::find($id);
 
         if (!$movie) {
-            return response("Movie not found.", 404);
+            return response()->json(['message' => 'Movie not found!'], 404);
         }
 
         $movie->delete();
-
-        return response("Movie successfully deleted.", 200);
+        return response()->json(['message' => 'Movie deleted successfully!'], 200);
     }
 }

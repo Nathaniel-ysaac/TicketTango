@@ -9,20 +9,22 @@ class SeatModel extends Model
 {
     use HasFactory;
 
-    // Specify the table associated with the model if different from the pluralized name
+    // Define the table associated with the model
     protected $table = 'seat_models';
 
-    // The attributes that are mass assignable
+    // Fillable attributes for mass assignment
     protected $fillable = [
-        'CinemaHallID',
-        'RowNumber',
-        'SeatNumber',
-        'is_available',
+        'showtime_model_id', // Foreign key to ShowtimeModel
+        'row',               // Row of the seat
+        'seat_number',       // Seat number
+        'is_available',      // Availability of the seat
     ];
 
-    // Define the relationship with the CinemaHallModel
-    public function cinemaHall()
+    /**
+     * Get the showtime associated with the seat.
+     */
+    public function showtime()
     {
-        return $this->belongsTo(CinemaHallModel::class, 'CinemaHallID');
+        return $this->belongsTo(ShowtimeModel::class, 'showtime_model_id');
     }
 }

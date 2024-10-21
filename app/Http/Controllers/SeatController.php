@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 class SeatController extends Controller
 {
     /**
-     * Display a listing of seats.
+     * Display a listing of the seats.
      */
     public function index()
     {
-        $seats = SeatModel::all(); // Retrieve all seats
+        $seats = SeatModel::all();
         return response()->json($seats, 200);
     }
 
@@ -22,20 +22,17 @@ class SeatController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'CinemaHallID' => 'required|exists:cinema_hall_models,id',
-            'RowNumber' => 'required|string|max:10',
-            'SeatNumber' => 'required|integer',
-            'is_available' => 'boolean',
+            'showtime_model_id' => 'required|exists:showtime_models,id',
+            'row' => 'required|string|max:255',
+            'seat_number' => 'required|integer|min:1',
+            'is_available' => 'required|boolean',
         ]);
 
-        $seat = SeatModel::create([
-            'CinemaHallID' => $request->CinemaHallID,
-            'RowNumber' => $request->RowNumber,
-            'SeatNumber' => $request->SeatNumber,
-            'is_available' => $request->is_available ?? true, // Default to true if not provided
-        ]);
-
-        return response()->json($seat, 201); // Return the created seat
+        $seat = SeatModel::create($request->all());
+        return response()->json([
+            'message' => 'Seat created successfully!',
+            'seat' => $seat
+        ], 201);
     }
 
     /**
@@ -46,7 +43,7 @@ class SeatController extends Controller
         $seat = SeatModel::find($id);
 
         if (!$seat) {
-            return response()->json(['message' => 'Seat not found.'], 404);
+            return response()->json(['message' => 'Seat not found!'], 404);
         }
 
         return response()->json($seat, 200);
@@ -60,19 +57,21 @@ class SeatController extends Controller
         $seat = SeatModel::find($id);
 
         if (!$seat) {
-            return response()->json(['message' => 'Seat not found.'], 404);
+            return response()->json(['message' => 'Seat not found!'], 404);
         }
 
         $request->validate([
-            'CinemaHallID' => 'sometimes|required|exists:cinema_hall_models,id',
-            'RowNumber' => 'sometimes|required|string|max:10',
-            'SeatNumber' => 'sometimes|required|integer',
-            'is_available' => 'sometimes|boolean',
+            'showtime_model_id' => 'sometimes|required|exists:showtime_models,id',
+            'row' => 'sometimes|required|string|max:255',
+            'seat_number' => 'sometimes|required|integer|min:1',
+            'is_available' => 'sometimes|required|boolean',
         ]);
 
-        $seat->update($request->only(['CinemaHallID', 'RowNumber', 'SeatNumber', 'is_available']));
-
-        return response()->json($seat, 200);
+        $seat->update($request->all());
+        return response()->json([
+            'message' => 'Seat updated successfully!',
+            'seat' => $seat
+        ], 200);
     }
 
     /**
@@ -83,11 +82,10 @@ class SeatController extends Controller
         $seat = SeatModel::find($id);
 
         if (!$seat) {
-            return response()->json(['message' => 'Seat not found.'], 404);
+            return response()->json(['message' => 'Seat not found!'], 404);
         }
 
         $seat->delete();
-
-        return response()->json(['message' => 'Seat successfully deleted.'], 200);
+        return response()->json(['message' => 'Seat deleted successfully!'], 200);
     }
 }
