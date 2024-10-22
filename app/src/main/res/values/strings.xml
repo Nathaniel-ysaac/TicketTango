@@ -47,5 +47,7 @@
     <string name="user_name">User_Name</string>
     <string name="sign_up_label">Sign Up</string>
     <string name="welcome_to">Welcome to</string>
+    <string name="selectedSeatIds">selectedSeatIds</string>
+    <string name="moviesynopsis1">The untold origin story of Optimus Prime and Megatron, better known as sworn enemies, but who once were friends bonded like brothers who changed the fate of Cybertron forever.</string>
 
 </resources>

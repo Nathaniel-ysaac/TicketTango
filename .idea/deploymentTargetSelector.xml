@@ -15,10 +15,10 @@
       </SelectionState>
       <SelectionState runConfigName="LoginActivity">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-10-15T07:21:52.203931100Z">
+        <DropdownSelection timestamp="2024-10-22T06:32:39.940854300Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Huawei\.android\avd\Small_Phone_Edited_API_35.avd" />
+              <DeviceId pluginId="PhysicalDevice" identifier="serial=9TQSXSGYMF7TNZ9X" />
             </handle>
           </Target>
         </DropdownSelection>

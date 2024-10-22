@@ -7,7 +7,7 @@
     <RelativeLayout
         android:id="@+id/rlProfile"
         android:layout_width="match_parent"
-        android:layout_height="275dp"
+        android:layout_height="425dp"
         android:background="@drawable/rounded_darkblue_bg">
 
         <TextView
@@ -43,11 +43,31 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@id/username"
             android:layout_centerHorizontal="true"
             android:text="example@gmail.com"
             android:textColor="#A6A6A6"/>
+
+        <ImageButton
+            android:id="@+id/ibEditPf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="Edit Profile"
+            android:layout_above="@+id/ibSignout"
+            android:background="@drawable/edit_profile"/>
+
+
+        <ImageButton
+            android:id="@+id/ibSignout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="35dp"
+            android:contentDescription="Sign Out"
+            android:background="@drawable/sign_out"/>
     </RelativeLayout>
 
 

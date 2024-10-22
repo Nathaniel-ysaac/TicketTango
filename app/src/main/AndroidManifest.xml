@@ -24,11 +24,16 @@
         <activity android:name=".SignupActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".MovieDetailActivity" />
+        <activity android:name=".Movie2DetailActivity" />
+        <activity android:name=".Movie3DetailActivity" />
+        <activity android:name=".Movie4DetailActivity" />
         <activity android:name=".PaymentActivity" />
         <activity android:name=".DigitalTicketActivity" />
         <activity android:name=".MoviesActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".CheckoutActivity" />
+        <activity android:name=".EditprofileActivity" />
+        <activity android:name=".SeatSelectionActivity" />
 
 
         <meta-data

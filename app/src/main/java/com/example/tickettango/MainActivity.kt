@@ -4,23 +4,16 @@ package com.example.tickettango
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageView
-import android.widget.ScrollView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var svNowplaying: ScrollView
-    private lateinit var svUpcoming: ScrollView
-    private lateinit var tvNowplaying: TextView
-    private lateinit var tvUpcoming: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,31 +25,34 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-
-        // Now Playing Movie Selection
-        svNowplaying = findViewById(R.id.svNowPlaying)
-        svUpcoming = findViewById(R.id.svUpcoming)
-        tvNowplaying = findViewById(R.id.tvNowPlaying)
-        tvUpcoming = findViewById(R.id.tvUpcoming)
-
-
-        svNowplaying.visibility = View.VISIBLE
-        svUpcoming.visibility = View.GONE
-        tvNowplaying.setTextColor(ContextCompat.getColor(this, R.color.orange))
-        tvUpcoming.setTextColor(ContextCompat.getColor(this, R.color.white))
-
-        tvNowplaying.setOnClickListener {
-            svNowplaying.visibility = View.VISIBLE
-            svUpcoming.visibility = View.GONE
-            tvNowplaying.setTextColor(ContextCompat.getColor(this, R.color.orange))
-            tvUpcoming.setTextColor(ContextCompat.getColor(this, R.color.white))
+        val btnUpcoming: TextView = this.findViewById(R.id.tvUpcoming)
+        btnUpcoming.setOnClickListener {
+            val intent = Intent(this, MoviesActivity::class.java)
+            startActivity(intent)
         }
 
-        tvUpcoming.setOnClickListener {
-            svNowplaying.visibility = View.GONE
-            svUpcoming.visibility = View.VISIBLE
-            tvNowplaying.setTextColor(ContextCompat.getColor(this, R.color.white))
-            tvUpcoming.setTextColor(ContextCompat.getColor(this, R.color.orange))
+
+        val movie1: ImageView = this.findViewById(R.id.ivNPCinema1)
+        movie1.setOnClickListener {
+            val intent = Intent(this, MovieDetailActivity::class.java)
+            startActivity(intent)
+        }
+
+
+        val movie2: ImageView = this.findViewById(R.id.ivNPCinema2)
+        movie2.setOnClickListener {
+            val intent = Intent(this, Movie2DetailActivity::class.java)
+            startActivity(intent)
+        }
+        val movie3: ImageView = this.findViewById(R.id.ivNPCinema3)
+        movie3.setOnClickListener {
+            val intent = Intent(this, Movie3DetailActivity::class.java)
+            startActivity(intent)
+        }
+        val movie4: ImageView = this.findViewById(R.id.ivNPCinema4)
+        movie4.setOnClickListener {
+            val intent = Intent(this, Movie4DetailActivity::class.java)
+            startActivity(intent)
         }
 
         val btnTicket: ImageView = this.findViewById(R.id.ticketIcon)
@@ -69,5 +65,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
         }
+
     }
 }

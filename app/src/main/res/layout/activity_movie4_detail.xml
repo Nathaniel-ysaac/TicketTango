@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/movie1"
+    android:id="@+id/movie4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -42,7 +42,7 @@
         android:background="@drawable/rounded_image"
         android:clipToOutline="true"
         android:layout_marginTop="20dp"
-        android:src="@drawable/transformers"/>
+        android:src="@drawable/wildrobot"/>
 
     <ImageButton
         android:id="@+id/btnBookTkt"
@@ -76,59 +76,31 @@
         android:fillViewport="true"
         android:verticalScrollbarPosition="right">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/tvMovieTitle"
-                android:text="Transformers One"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="25sp"
-                android:fontFamily="@font/poppins_semibold"
-                android:layout_gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <TextView
+        android:id="@+id/tvMovieTitle"
+        android:text="The Wild Robot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_gravity="center"/>
 
 
-            <GridLayout
-                android:id="@+id/tvMovieScreening"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:columnCount="3">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Release Date\nSeptember 20, 2024"
-                    android:textSize="12sp"
-                    android:layout_margin="10dp"
-                    android:textAlignment="center" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Duration\n1h 44m"
-                    android:textSize="12sp"
-                    android:layout_margin="10dp"
-                    android:layout_gravity="center"
-                    android:textAlignment="center" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Genre\nAction, Sci-fi"
-                    android:textSize="12sp"
-                    android:layout_margin="10dp"
-                    android:textAlignment="center" />
-            </GridLayout>
+    <TextView
+        android:id="@+id/tvMovieScreening"
+        android:text="@string/movie_screening"
+        android:textSize="20sp"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
 
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/moviesynopsis1"
-                android:layout_margin="10dp"
-                android:textAlignment="center" />
-
-        </LinearLayout>
+    </LinearLayout>
     </ScrollView>
 
 

@@ -10,4 +10,8 @@
     <color name="transparentorange">#6FFF5722</color>
     <color name="darkBlue">#001A42</color>
     <color name="transparent">#00001A42</color>
+    <color name="primary">#001A42</color>
+    <color name="seat_available">#3E4A64</color>
+    <color name="seat_selected">#FF7043</color>
+    <color name="seat_booked">#FFFFFF</color>
 </resources>

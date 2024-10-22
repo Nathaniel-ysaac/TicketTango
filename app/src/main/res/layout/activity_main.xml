@@ -185,7 +185,7 @@
                 android:clipToOutline="true"
                 android:layout_marginTop="0dp"
                 android:layout_margin="15dp"
-                android:src="@drawable/jacksparrow"/>
+                android:src="@drawable/transformers"/>
 
             <ImageView
                 android:id="@+id/ivNPCinema2"
@@ -195,7 +195,7 @@
                 android:clipToOutline="true"
                 android:layout_marginTop="0dp"
                 android:layout_margin="15dp"
-                android:src="@drawable/jacksparrow"/>
+                android:src="@drawable/joker"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -223,7 +223,7 @@
                 android:clipToOutline="true"
                 android:layout_marginTop="0dp"
                 android:layout_margin="15dp"
-                android:src="@drawable/jacksparrow"/>
+                android:src="@drawable/superman"/>
 
             <ImageView
                 android:id="@+id/ivNPCinema4"
@@ -233,109 +233,11 @@
                 android:clipToOutline="true"
                 android:layout_marginTop="0dp"
                 android:layout_margin="15dp"
-                android:src="@drawable/jacksparrow"/>
+                android:src="@drawable/wildrobot"/>
 
         </GridLayout>
     </ScrollView>
 
-
-    <ScrollView
-        android:id="@+id/svUpcoming"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/rlMenu"
-        android:layout_above="@id/bottomNavigation"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="0dp"
-        android:layout_weight="1"
-        android:fillViewport="true"
-        android:verticalScrollbarPosition="right">
-
-        <GridLayout
-            android:id="@+id/glUpcoming"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:columnCount="2">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cinema 1"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/poppins_semibold"
-                android:textSize="25sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cinema 2"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/poppins_semibold"
-                android:textSize="25sp"/>
-
-            <ImageView
-                android:id="@+id/ivUCCinema1"
-                android:layout_width="150dp"
-                android:layout_height="215dp"
-                android:background="@drawable/rounded_image"
-                android:clipToOutline="true"
-                android:layout_marginTop="0dp"
-                android:layout_margin="15dp"
-                android:src="@drawable/jacksparrow"/>
-
-            <ImageView
-                android:id="@+id/ivUCCinema2"
-                android:layout_width="150dp"
-                android:layout_height="215dp"
-                android:background="@drawable/rounded_image"
-                android:clipToOutline="true"
-                android:layout_marginTop="0dp"
-                android:layout_margin="15dp"
-                android:src="@drawable/jacksparrow"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cinema 3"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/poppins_semibold"
-                android:textSize="25sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cinema 4"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/poppins_semibold"
-                android:textSize="25sp"/>
-
-            <ImageView
-                android:id="@+id/ivUCCinema3"
-                android:layout_width="150dp"
-                android:layout_height="215dp"
-                android:background="@drawable/rounded_image"
-                android:clipToOutline="true"
-                android:layout_marginTop="0dp"
-                android:layout_margin="15dp"
-                android:src="@drawable/jacksparrow"/>
-
-            <ImageView
-                android:id="@+id/ivUCCinema4"
-                android:layout_width="150dp"
-                android:layout_height="215dp"
-                android:background="@drawable/rounded_image"
-                android:clipToOutline="true"
-                android:layout_marginTop="0dp"
-                android:layout_margin="15dp"
-                android:src="@drawable/jacksparrow"/>
-
-
-        </GridLayout>
-    </ScrollView>
 
 
 </RelativeLayout>

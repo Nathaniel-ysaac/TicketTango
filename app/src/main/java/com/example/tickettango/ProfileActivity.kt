@@ -2,6 +2,7 @@ package com.example.tickettango
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +31,17 @@ class ProfileActivity : AppCompatActivity() {
         val btnHome: ImageView = this.findViewById(R.id.homeIcon)
         btnHome.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+        val btnEdit: ImageButton = this.findViewById(R.id.ibEditPf)
+        btnEdit.setOnClickListener {
+            val intent = Intent(this, EditprofileActivity::class.java)
+            startActivity(intent)
+        }
+
+        val btnSignout: ImageButton = this.findViewById(R.id.ibSignout)
+        btnSignout.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/edit"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/background">
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_back"
+        android:background="@color/transparent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"/>
+    <TextView
+        android:id="@+id/tveditPro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Profile"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="45dp"/>
+
+    <ImageView
+        android:id="@+id/ivProfilePic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/profile_pic"
+        android:layout_below="@id/tveditPro"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/ivProfilePic"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            android:fontFamily="@font/poppins_extralight"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            android:layout_marginTop="35dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="@string/user_name"
+            android:textColorHint="@color/white"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="12dp"
+            android:padding="5dp"
+            android:background="@drawable/white_border_shape"
+            android:inputType="textPersonName"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:fontFamily="@font/poppins_extralight"
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="example@gmail.com"
+            android:textColorHint="@color/white"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="12dp"
+            android:padding="5dp"
+            android:background="@drawable/white_border_shape"
+            android:inputType="textEmailAddress"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:fontFamily="@font/poppins_extralight"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            android:layout_marginTop="10dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="***********"
+            android:textColorHint="@color/white"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="12dp"
+            android:padding="5dp"
+            android:background="@drawable/white_border_shape"
+            android:inputType="textPassword"/>
+
+    </LinearLayout>
+
+
+    <ImageButton
+        android:id="@+id/ibUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:background="@drawable/loginbtn"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UPDATE"
+        android:textColor="@color/white"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="25dp"/>
+
+
+</RelativeLayout>
