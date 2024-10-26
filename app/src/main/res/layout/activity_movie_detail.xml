@@ -70,7 +70,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_below="@id/btnBookTkt"
         android:fillViewport="true"
@@ -101,6 +101,7 @@
                     android:layout_height="wrap_content"
                     android:text="Release Date\nSeptember 20, 2024"
                     android:textSize="12sp"
+                    style="@style/BoldTextStyle"
                     android:layout_margin="10dp"
                     android:textAlignment="center" />
                 <TextView
@@ -108,6 +109,7 @@
                     android:layout_height="wrap_content"
                     android:text="Duration\n1h 44m"
                     android:textSize="12sp"
+                    style="@style/BoldTextStyle"
                     android:layout_margin="10dp"
                     android:layout_gravity="center"
                     android:textAlignment="center" />
@@ -116,6 +118,7 @@
                     android:layout_height="wrap_content"
                     android:text="Genre\nAction, Sci-fi"
                     android:textSize="12sp"
+                    style="@style/BoldTextStyle"
                     android:layout_margin="10dp"
                     android:textAlignment="center" />
             </GridLayout>
@@ -125,6 +128,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/moviesynopsis1"
+                style="@style/MainTextStyle"
                 android:layout_margin="10dp"
                 android:textAlignment="center" />
 

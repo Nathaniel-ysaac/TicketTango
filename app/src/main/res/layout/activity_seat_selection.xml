@@ -26,7 +26,7 @@
             android:id="@+id/tvmoviedetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Choose seat/s"
+            android:text="Choose a seat"
             android:textSize="24sp"
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_semibold"

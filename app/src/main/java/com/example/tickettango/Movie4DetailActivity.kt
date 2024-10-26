@@ -28,9 +28,12 @@ class Movie4DetailActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
+        val movieTitle = "The Wild Robot"
         val btnGet: ImageButton = this.findViewById(R.id.btnBookTkt)
         btnGet.setOnClickListener {
             val intent = Intent(this, SeatSelectionActivity::class.java)
+            intent.putExtra("movieTitle", movieTitle)
             startActivity(intent)
         }
 

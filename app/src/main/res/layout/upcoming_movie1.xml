@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/movie4"
+    android:id="@+id/ucmovie1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -42,7 +42,7 @@
         android:background="@drawable/rounded_image"
         android:clipToOutline="true"
         android:layout_marginTop="20dp"
-        android:src="@drawable/wildrobot"/>
+        android:src="@drawable/mha"/>
 
     <ImageButton
         android:id="@+id/btnBookTkt"
@@ -59,7 +59,7 @@
         android:id="@+id/booktxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BOOK TICKET"
+        android:text="COMING SOON"
         android:textColor="@color/white"
         android:layout_below="@id/ivMoviePoster"
         android:textSize="18sp"
@@ -80,15 +80,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/tvMovieTitle"
-                android:text="The Wild Robot"
+                android:text="My Hero Academia: You're Next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="25sp"
-                android:gravity="center"
                 android:fontFamily="@font/poppins_semibold"
+                android:gravity="center"
                 android:layout_gravity="center"/>
 
 
@@ -100,7 +101,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Release Date\nOctober 09, 2024"
+                    android:text="Release Date\nNovember 11, 2024"
                     android:textSize="12sp"
                     style="@style/BoldTextStyle"
                     android:layout_margin="10dp"
@@ -108,7 +109,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Duration\n1h 42m"
+                    android:text="Duration\n1h 50m"
                     android:textSize="12sp"
                     style="@style/BoldTextStyle"
                     android:layout_margin="10dp"
@@ -117,7 +118,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Genre\nFamily/Adventure"
+                    android:text="Genre\nAnimation/Fantasy"
                     android:textSize="12sp"
                     style="@style/BoldTextStyle"
                     android:layout_margin="10dp"
@@ -128,7 +129,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/moviesynopsis4"
+                android:text="@string/UCMoviesynopsis1"
                 style="@style/MainTextStyle"
                 android:layout_margin="10dp"
                 android:textAlignment="center" />

@@ -22,18 +22,24 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignupActivity" />
+        <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".MovieDetailActivity" />
         <activity android:name=".Movie2DetailActivity" />
         <activity android:name=".Movie3DetailActivity" />
         <activity android:name=".Movie4DetailActivity" />
         <activity android:name=".PaymentActivity" />
+        <activity android:name=".PaymentSuccessActivity" />
         <activity android:name=".DigitalTicketActivity" />
         <activity android:name=".MoviesActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".CheckoutActivity" />
         <activity android:name=".EditprofileActivity" />
         <activity android:name=".SeatSelectionActivity" />
+        <activity android:name=".UpcomingMovie1Activity" />
+        <activity android:name=".UpcomingMovie2Activity" />
+        <activity android:name=".UpcomingMovie3Activity" />
+        <activity android:name=".UpcomingMovie4Activity" />
 
 
         <meta-data

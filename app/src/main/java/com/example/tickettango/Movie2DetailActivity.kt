@@ -28,10 +28,12 @@ class Movie2DetailActivity : AppCompatActivity() {
         }
 
 
+        val movieTitle = "Joker: Folie a Deux"
 
         val btnGet: ImageButton = this.findViewById(R.id.btnBookTkt)
         btnGet.setOnClickListener {
             val intent = Intent(this, SeatSelectionActivity::class.java)
+            intent.putExtra("movieTitle", movieTitle)
             startActivity(intent)
         }
 

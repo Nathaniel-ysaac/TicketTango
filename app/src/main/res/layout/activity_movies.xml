@@ -10,28 +10,29 @@
         android:layout_width="match_parent"
         android:layout_height="175dp"
         android:background="@drawable/rounded_darkblue_bg">
-        <ImageButton
-            android:id="@+id/searchButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_search"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="60dp"/>
 
         <TextView
             android:id="@+id/tickettitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ticket"
+            android:text="Ticke"
             android:textSize="24sp"
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_semibold"
             android:layout_alignParentTop="true"
             android:layout_marginTop="55dp"
-            android:layout_marginLeft="100dp"/>
+            android:layout_toStartOf="@id/ttitle"/>
+        <TextView
+            android:id="@+id/ttitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="t"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="55dp"
+            android:layout_centerHorizontal="true"/>
         <TextView
             android:id="@+id/tangotitle"
             android:layout_width="wrap_content"
@@ -40,7 +41,7 @@
             android:textSize="24sp"
             android:textColor="@color/orange"
             android:fontFamily="@font/poppins_semibold"
-            android:layout_toRightOf="@id/tickettitle"
+            android:layout_toEndOf="@id/ttitle"
             android:layout_marginTop="55dp"/>
 
         <TextView
@@ -67,16 +68,224 @@
             android:layout_marginBottom="32dp" />
     </RelativeLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/rlMovies">
+        android:layout_below="@id/rlMovies"
+        android:layout_above="@id/bottomNavigation">
 
-        <ListView
-            android:id="@+id/movielist"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rlUCMovie1"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@drawable/black_border"
+                android:layout_marginVertical="5dp">
+
+                <ImageView
+                    android:id="@+id/ivUCMovie1"
+                    android:layout_width="120dp"
+                    android:layout_height="180dp"
+                    android:src="@drawable/mha"/>
+
+                <TextView
+                    android:id="@+id/tvUCMovie1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="My Hero Academia: You're Next"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="17sp"
+                    android:layout_toEndOf="@id/ivUCMovie1"
+                    android:padding="10dp"
+                    android:layout_marginTop="40dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1h 50m, Animation"
+                    android:layout_below="@id/tvUCMovie1"
+                    android:layout_toEndOf="@id/ivUCMovie1"
+                    android:layout_margin="10dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlUCMovie2"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@drawable/black_border"
+                android:layout_marginVertical="5dp">
+
+                <ImageView
+                    android:id="@+id/ivUCMovie2"
+                    android:layout_width="120dp"
+                    android:layout_height="180dp"
+                    android:src="@drawable/moana2"/>
+
+                <TextView
+                    android:id="@+id/tvUCMovie2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Moana 2"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="17sp"
+                    android:layout_toEndOf="@id/ivUCMovie2"
+                    android:padding="10dp"
+                    android:layout_marginTop="40dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1h 40m, Animation"
+                    android:layout_below="@id/tvUCMovie2"
+                    android:layout_toEndOf="@id/ivUCMovie2"
+                    android:layout_margin="10dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlUCMovie3"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@drawable/black_border"
+                android:layout_marginVertical="5dp">
+
+                <ImageView
+                    android:id="@+id/ivUCMovie3"
+                    android:layout_width="120dp"
+                    android:layout_height="180dp"
+                    android:src="@drawable/wicked"/>
+
+                <TextView
+                    android:id="@+id/tvUCMovie3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wicked"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="17sp"
+                    android:layout_toEndOf="@id/ivUCMovie3"
+                    android:padding="10dp"
+                    android:layout_marginTop="40dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2h 40m, Musical/Fantasy"
+                    android:layout_below="@id/tvUCMovie3"
+                    android:layout_toEndOf="@id/ivUCMovie3"
+                    android:layout_margin="10dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlUCMovie4"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@drawable/black_border"
+                android:layout_marginVertical="5dp">
+
+                <ImageView
+                    android:id="@+id/ivUCMovie4"
+                    android:layout_width="120dp"
+                    android:layout_height="180dp"
+                    android:src="@drawable/gladiator2"/>
+
+                <TextView
+                    android:id="@+id/tvUCMovie4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gladiator II"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="17sp"
+                    android:layout_toEndOf="@id/ivUCMovie4"
+                    android:padding="10dp"
+                    android:layout_marginTop="40dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2h 28m, Action/Adventure"
+                    android:layout_below="@id/tvUCMovie4"
+                    android:layout_toEndOf="@id/ivUCMovie4"
+                    android:layout_margin="10dp"/>
+            </RelativeLayout>
+
+
 
     </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottom_nav">
+
+        <ImageView
+            android:id="@+id/homeIcon"
+            android:layout_width="35dp"
+            android:layout_height="54dp"
+            android:src="@drawable/ic_home"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="1dp" />
+
+        <TextView
+            android:id="@+id/homeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/nunito_semibold"
+            android:textColor="#FF6E4E"
+            android:layout_marginTop="45dp"
+            android:layout_marginStart="50dp"/>
+
+        <ImageView
+            android:id="@+id/ticketIcon"
+            android:layout_width="45dp"
+            android:layout_height="54dp"
+            android:src="@drawable/ic_ticket"
+            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"/>
+
+        <TextView
+            android:id="@+id/ticketText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ticket"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/nunito_semibold"
+            android:textColor="@color/white"
+            android:layout_marginTop="45dp"
+            android:layout_centerInParent="true"
+            android:layout_alignTop="@id/ticketIcon"/>
+
+        <ImageView
+            android:id="@+id/profileIcon"
+            android:layout_width="45dp"
+            android:layout_height="54dp"
+            android:src="@drawable/ic_person"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="1dp"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/profileText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/nunito_semibold"
+            android:textColor="@color/white"
+            android:layout_marginTop="45dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50dp"/>
+    </RelativeLayout>
 
 </RelativeLayout>

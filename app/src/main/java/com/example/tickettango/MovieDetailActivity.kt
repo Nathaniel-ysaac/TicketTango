@@ -3,7 +3,6 @@ package com.example.tickettango
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -21,6 +20,8 @@ class MovieDetailActivity : AppCompatActivity() {
             insets
         }
 
+        val movieTitle = "Transformers One"
+
 
         val btnback: ImageButton = this.findViewById(R.id.backButton)
         btnback.setOnClickListener {
@@ -31,6 +32,7 @@ class MovieDetailActivity : AppCompatActivity() {
         val btnGet: ImageButton = this.findViewById(R.id.btnBookTkt)
         btnGet.setOnClickListener {
             val intent = Intent(this, SeatSelectionActivity::class.java)
+            intent.putExtra("movieTitle", movieTitle)
             startActivity(intent)
         }
 

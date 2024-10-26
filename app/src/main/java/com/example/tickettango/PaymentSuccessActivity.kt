@@ -9,20 +9,22 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class PaymentActivity : AppCompatActivity() {
+class PaymentSuccessActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_payment)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.payment)) { v, insets ->
+        setContentView(R.layout.pay_successful)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.paymentsuccessful)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
+
         val movieTitle = intent.getStringExtra("movieTitle")
+
 
         val seatsid: TextView = findViewById(R.id.seatsID)
         val selectedSeatIds = intent.getIntegerArrayListExtra("selectedSeatIds") ?: arrayListOf()
@@ -47,12 +49,12 @@ class PaymentActivity : AppCompatActivity() {
 
 
         //Pay Now Button
-        val btnPay: ImageButton = this.findViewById(R.id.ibPayNow)
-        btnPay.setOnClickListener {
-                val intent = Intent(this, PaymentSuccessActivity::class.java)
-                intent.putExtra("movieTitle", movieTitle)
-                intent.putExtra("numberOfSeats", selectedSeatIds.size)
-                intent.putIntegerArrayListExtra("selectedSeatIds", ArrayList(selectedSeatIds))
+        val backbutton: ImageButton = this.findViewById(R.id.backButton)
+        backbutton.setOnClickListener {
+                val intent = Intent(this, DigitalTicketActivity::class.java)
+            intent.putExtra("movieTitle", movieTitle)
+            intent.putExtra("numberOfSeats", selectedSeatIds.size)
+            intent.putIntegerArrayListExtra("selectedSeatIds", ArrayList(selectedSeatIds))
                 startActivity(intent)
             }
 
