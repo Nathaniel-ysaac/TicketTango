@@ -2,7 +2,9 @@ package com.example.tickettango
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
+import android.view.View
 import android.widget.*
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +30,10 @@ class SeatSelectionActivity : AppCompatActivity() {
 
 
         val seatGrid: GridLayout = findViewById(R.id.seat_grid)
+        val backBtn : ImageButton = findViewById(R.id.backButton)
+
+        backBtn
+
         val selectedSeatIds = mutableListOf<Int>()
         val totalSeats = 300
         val availableSeats = List(totalSeats) { true }
@@ -70,6 +76,8 @@ class SeatSelectionActivity : AppCompatActivity() {
                 seatNumberTextView.gravity = Gravity.CENTER
                 seatView.addView(seatNumberTextView)
 
+
+
                 seatView.setOnClickListener {
                     if (availableSeats[seatIndex]) {
                         isSeatSelected = !isSeatSelected
@@ -97,7 +105,7 @@ class SeatSelectionActivity : AppCompatActivity() {
                 intent.putIntegerArrayListExtra("selectedSeatIds", ArrayList(selectedSeatIds))
                 startActivity(intent)
             } else {
-                Toast.makeText(this, "Please select your seats", Toast.LENGTH_SHORT).show()
+
             }
         }
     }

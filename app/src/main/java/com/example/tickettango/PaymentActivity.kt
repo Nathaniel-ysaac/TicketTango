@@ -1,9 +1,11 @@
 package com.example.tickettango
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -45,15 +47,24 @@ class PaymentActivity : AppCompatActivity() {
         val gettotal = numberOfSeats * 150
         total.text = "₱$gettotal"
 
-
         //Pay Now Button
         val btnPay: ImageButton = this.findViewById(R.id.ibPayNow)
+        val context : Context = this
         btnPay.setOnClickListener {
-                val intent = Intent(this, PaymentSuccessActivity::class.java)
-                intent.putExtra("movieTitle", movieTitle)
-                intent.putExtra("numberOfSeats", selectedSeatIds.size)
-                intent.putIntegerArrayListExtra("selectedSeatIds", ArrayList(selectedSeatIds))
-                startActivity(intent)
+                if(selectedSeatIds.size <= 0){
+                    runOnUiThread(object : Runnable{
+                        override fun run() {
+                            Toast.makeText(baseContext,"No Selected Seats!", Toast.LENGTH_SHORT).show()
+                        }
+                    })
+                }
+                else {
+                    val intent = Intent(this, GCashActivity::class.java)
+                    intent.putExtra("movieTitle", movieTitle)
+                    intent.putExtra("numberOfSeats", selectedSeatIds.size)
+                    intent.putIntegerArrayListExtra("selectedSeatIds", ArrayList(selectedSeatIds))
+                    startActivity(intent)
+                }
             }
 
 

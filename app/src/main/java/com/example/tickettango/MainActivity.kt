@@ -30,15 +30,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MoviesActivity::class.java)
             startActivity(intent)
         }
-
-
         val movie1: ImageView = this.findViewById(R.id.ivNPCinema1)
         movie1.setOnClickListener {
             val intent = Intent(this, MovieDetailActivity::class.java)
             startActivity(intent)
         }
-
-
         val movie2: ImageView = this.findViewById(R.id.ivNPCinema2)
         movie2.setOnClickListener {
             val intent = Intent(this, Movie2DetailActivity::class.java)
@@ -54,7 +50,6 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, Movie4DetailActivity::class.java)
             startActivity(intent)
         }
-
         val btnTicket: ImageView = this.findViewById(R.id.ticketIcon)
         btnTicket.setOnClickListener {
             val intent = Intent(this, CheckoutActivity::class.java)

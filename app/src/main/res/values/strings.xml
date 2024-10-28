@@ -1,4 +1,5 @@
 <resources>
+    <string name="ticket_store">shared_store</string>
     <string name="app_name">TicketTango</string>
     <string name="bgdetails">DETAILS</string>
     <string name="bgdetails2">DETAILS</string>

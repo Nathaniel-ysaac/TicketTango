@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gcash_form"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="66dp"
+        android:layout_marginTop="32dp"
+        >
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_back"
+            android:background="@color/transparent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="18dp"
+            android:contentDescription="Back"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment"
+            android:layout_gravity="center"
+            android:textSize="22dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/white"
+            />
+    </FrameLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="44dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ticket_shape"
+        android:orientation="vertical"
+        >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="12dp"
+            android:minHeight="64dp">
+
+            <ImageButton
+                android:id="@+id/changePayment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:background="@drawable/ic_back"
+                android:backgroundTint="@color/gcash_blue"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="GCash"
+                android:layout_gravity="center"
+                android:foregroundGravity="center"
+                android:textAlignment="center"
+                android:textSize="17.5sp"
+                android:fontFamily="@font/poppins_semibold"
+                />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gcash_blue"
+                android:minHeight="28mm">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GCash"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="5mm"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="48dp"
+                android:layout_marginTop="14mm"
+                android:background="@drawable/curved"
+                android:gravity="bottom"
+                android:minHeight="0mm"
+                android:orientation="vertical"
+                android:outlineProvider="paddedBounds"
+                android:paddingVertical="75px"
+                android:paddingHorizontal="60px"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="fill_horizontal"
+                    android:layout_weight="1"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:text="Merchant"
+                        android:textColor="@color/pale_grey"
+                        android:textSize="36px"
+                        android:fontFamily="@font/poppins_semibold"
+                        />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="TicketTango"
+                        android:textColor="#484848"
+                        android:textSize="36px"
+                        android:fontFamily="@font/poppins_semibold"
+
+                        />
+                </LinearLayout>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="12dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="36px"
+                        android:text="Amount Due"
+                        android:textColor="@color/pale_grey"
+                        android:fontFamily="@font/poppins_semibold"
+                        />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PHP 0.0"
+                        android:textSize="37px"
+                        android:textColor="@color/gcash_blue"
+                        android:textAllCaps="true"
+                        android:fontFamily="@font/poppins_semibold"
+                        />
+                </LinearLayout>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12px"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Login to pay with Gcash"
+                        android:textSize="31px" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mobile Number"
+                        android:textSize="29px"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/textlines"
+                        android:gravity="center_vertical"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="63+"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textSize="34px"
+                            android:paddingVertical="0px"
+                            android:paddingRight="14px"
+                            android:paddingLeft="6px"
+                            android:background="@drawable/textlines_right_bar"
+                            android:foregroundGravity="center"
+                            android:gravity="center_vertical"
+                            />
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="0px"
+                            android:textSize="34px"
+                            android:background="@null"
+                            android:id="@+id/userNumber"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    />
+                <TextView
+                    android:id="@+id/hiddenWarning"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal"
+                    />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"/>
+
+                <Button
+                    android:id="@+id/proceedBtn"
+                    android:layout_width="155dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="38dp"
+                    android:padding="0px"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:text="Proceed"
+                    android:textSize="38px"
+                    android:backgroundTint="@color/gcash_blue"
+
+                    />
+            </LinearLayout>
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

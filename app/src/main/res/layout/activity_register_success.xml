@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/register_success"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Registration\nSuccessful"
+            android:textSize = "30dp"
+
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_semibold"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="check"
+            android:background="@drawable/ic_circle_check"
+            />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+
+            />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            >
+            <ImageButton
+                android:id="@+id/proceedBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/loginbtn"
+                android:minHeight="50dp"
+                android:tooltipText="Proceed"
+                android:contentDescription="Proceed Button"
+                />
+
+            <TextView
+                android:id="@+id/loginText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Proceed"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:minHeight=".275in"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+        </FrameLayout>
+
+
+
+    </LinearLayout>
+</RelativeLayout>

@@ -2,6 +2,7 @@ package com.example.tickettango
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -20,8 +21,14 @@ class DigitalTicketActivity : AppCompatActivity() {
             insets
         }
 
-        val btnback: ImageButton = this.findViewById(R.id.backButton)
-        btnback.setOnClickListener {
+        val ticketsBtn: Button = this.findViewById(R.id.ticketsBtn)
+        ticketsBtn.setOnClickListener {
+
+            val intent = Intent(this, CheckoutActivity::class.java)
+            startActivity(intent)
+        }
+        val homeBtn: Button = findViewById(R.id.homeBtn)
+        homeBtn.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }

@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/signup"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/background"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:gravity="center"
+    >
 
     <TextView
         android:id="@+id/welcome"
@@ -18,10 +20,18 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:layout_above="@id/tangotitle"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        />
 
 
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp"
+        >
     <TextView
         android:id="@+id/tickettitle"
         android:layout_width="wrap_content"
@@ -33,67 +43,45 @@
         android:layout_above="@id/sigtitle"
         android:layout_toStartOf="@id/ttitle"
         android:layout_centerInParent="true"/>
-    <TextView
-        android:id="@+id/ttitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="T"
-        android:textSize="24sp"
-        android:textColor="@color/orange"
-        android:fontFamily="@font/poppins_semibold"
-        android:layout_above="@id/sigtitle"
-        android:layout_centerInParent="true"
-        />
+
     <TextView
         android:id="@+id/tangotitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ango"
+        android:text="Tango"
         android:textSize="24sp"
         android:textColor="@color/orange"
         android:fontFamily="@font/poppins_semibold"
         android:layout_above="@id/sigtitle"
         android:layout_toEndOf="@id/ttitle"
         android:layout_centerInParent="true"/>
-
-
-    <TextView
-        android:id="@+id/sigtitle"
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sig"
-        android:textSize="24sp"
-        android:textColor="@color/white"
-        android:fontFamily="@font/poppins_semibold"
-        android:layout_above="@id/etAddEmail"
-        android:layout_toStartOf="@id/ntitle"
-        android:layout_marginBottom="30dp"
-        android:layout_marginTop="40dp"
-        android:layout_centerInParent="true"/>
-    <TextView
-        android:id="@+id/ntitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="n"
-        android:textSize="24sp"
-        android:textColor="@color/white"
-        android:fontFamily="@font/poppins_semibold"
-        android:layout_above="@id/etAddEmail"
-        android:layout_marginBottom="30dp"
-        android:layout_centerInParent="true"/>
-    <TextView
-        android:id="@+id/uptitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="up"
-        android:textSize="24sp"
-        android:textColor="@color/orange"
-        android:fontFamily="@font/poppins_semibold"
-        android:layout_above="@id/etAddEmail"
-        android:layout_toEndOf="@id/ntitle"
-        android:layout_marginBottom="30dp"
-        android:layout_centerInParent="true"/>
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp"
+        >
+        <TextView
+            android:id="@+id/sigtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign"
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_semibold"/>
 
+        <TextView
+            android:id="@+id/uptitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="up"
+            android:textSize="24sp"
+            android:textColor="@color/orange"
+            android:fontFamily="@font/poppins_semibold"
+        />
+    </LinearLayout>
 
     <EditText
         android:id="@+id/etAddEmail"
@@ -155,13 +143,13 @@
 
         <ImageButton
             android:id="@+id/btnSignup"
-            android:contentDescription="Signup"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginEnd="40dp"
             android:layout_marginStart="40dp"
-            android:scaleType="fitXY"
-            android:background="@drawable/loginbtn" />
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/loginbtn"
+            android:contentDescription="Signup"
+            android:scaleType="fitXY" />
 
         <TextView
             android:id="@+id/signupText"
@@ -171,39 +159,21 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:layout_centerInParent="true" />
-    </RelativeLayout>
+            android:layout_centerInParent="true"
 
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
     <TextView
         android:id="@+id/tvSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already have an "
+        android:text="Already have an account"
         android:layout_below="@id/etCreatePassword"
-        android:layout_marginTop="75dp"
-        android:layout_toStartOf="@id/tvSignup3"
-        android:textSize="15sp"
-        android:fontFamily="@font/nunito_semibold"
-        android:textColor="@color/white" />
-    <TextView
-        android:id="@+id/tvSignup3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="a"
-        android:layout_below="@id/etCreatePassword"
-        android:layout_marginTop="75dp"
-        android:layout_centerHorizontal="true"
-        android:textSize="15sp"
-        android:fontFamily="@font/nunito_semibold"
-        android:textColor="@color/white" />
-    <TextView
-        android:id="@+id/tvSignup4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ccount?"
-        android:layout_below="@id/etCreatePassword"
-        android:layout_marginTop="75dp"
-        android:layout_toEndOf="@id/tvSignup3"
+        android:layout_marginTop="12dp"
         android:textSize="15sp"
         android:fontFamily="@font/nunito_semibold"
         android:textColor="@color/white" />
@@ -211,14 +181,13 @@
     <TextView
         android:id="@+id/tvSignIn"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:text=" Sign In"
-        android:layout_toEndOf="@id/tvSignup4"
         android:layout_below="@id/etCreatePassword"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="12dp"
         android:textSize="15sp"
         android:fontFamily="@font/nunito_semibold"
         android:textColor="@color/orange" />
+    </LinearLayout>
 
-
-</RelativeLayout>
+</LinearLayout>
